@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
 const Menu = (props) => {
+
     return (
         <div className="row">
             {
@@ -16,7 +17,7 @@ const Menu = (props) => {
                             </Card>
                         </div>
                     );
-                });
+                })
             }
         </div>
     );
