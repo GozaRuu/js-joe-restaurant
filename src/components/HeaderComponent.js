@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Jumbotron } from 'reactstrap';
+import { Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, Collapse, Jumbotron } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
     constructor(props) {
@@ -8,9 +9,33 @@ class Header extends Component {
     render() {
         return (
             <React.Fragment>
-                <Navbar dark>
+                <Navbar expand="md">
                     <div className="container">
-                        <NavbarBrand href="/">Js Joe Restaurant</NavbarBrand>
+                        <NavbarBrand className="mr-auto" href="/">
+                            <img src="assets/images/logo.png" height="60" width="82" alt="Js Joe Restaurant"/>
+                        </NavbarBrand>
+                        <Nav navbar>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/home" >
+                                    <span className="fa fa-info fa-lg"> Home </span>
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/aboutus" >
+                                    <span className="fa fa-info fa-lg"> About Us </span>
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/menu" >
+                                    <span className="fa fa-list fa-lg"> Menu </span>
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/contactus" >
+                                    <span className="fa fa-address-card fa-lg"> Contact </span>
+                                </NavLink>
+                            </NavItem>
+                        </Nav>
                     </div>
                 </Navbar>
                 <Jumbotron>
