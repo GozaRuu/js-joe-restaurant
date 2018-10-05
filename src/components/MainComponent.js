@@ -31,13 +31,21 @@ class Main extends Component {
                 <Home dish={dish} promotion={promotion} leader={leader} />
             );
         };
+        const SelectedDishCreator = ({match}) => {
+            const dish = this.state.dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0];
+            const comments = this.state.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10));
+            return (
+                <Dishdetail dish={dish} comments={comments}/>
+            );
+        };
         return (
             <div>
                 <Header />
                     <Switch>
                         <Route path="/home" component={HomeComponentCreator} />
                         <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} />} />
-                        <Route exact path="/contactus" component={Contact} />
+                        <Route path="/menu/:dishId" component={SelectedDishCreator} />
+                        <Route path="/contactus" component={Contact} />
                         <Redirect to="/home" />
                     </Switch>
                 <Footer />
