@@ -16,6 +16,8 @@ class Dishdetail extends Component {
             );
         }
         const renderComments = (comments) => {
+            const parseDate = (dateString) => new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'})
+                                                        .format(new Date(Date.parse(dateString)));
             return (
                 <div>
                     <h4>Comments</h4>
@@ -23,11 +25,8 @@ class Dishdetail extends Component {
                         {comments.map((comment) => {
                             return (
                                 <li>
-                                    {comment.comment}
-                                    <ul className="list-unstyled">
-                                        <li className="list-inline-item">{`-- ${comment.author}, `}</li>
-                                        <li className="list-inline-item">{comment.date}</li>
-                                    </ul>
+                                    <p>{comment.comment}</p>
+                                    <p>{`-- ${comment.author}, ${parseDate(comment.date)}`}</p>
                                 </li>
                             );
                         })}
