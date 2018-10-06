@@ -44,7 +44,8 @@ class CommentForm extends Component {
 
     handleCommentSubmit(values){
         this.props.toggle();
-        alert(JSON.stringify(values));
+        // alert(`${values.rating}, ${values.author}, ${values.comment}`)
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
 
@@ -64,11 +65,11 @@ class CommentForm extends Component {
                                 <div className="form-check">
                                     <Label htmlFor="rating">Rating</Label>
                                     <Control.select className="form-control" model=".rating" id="rating" name="rating" >
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </Control.select>
                                 </div>
                             </Row>
@@ -128,7 +129,7 @@ class Dishdetail extends Component {
                         <Button outline onClick={this.toggleModal}>
                             <span className="fa fa-pencil fa-lg"> Add Comment</span>
                         </Button>
-                        <CommentForm isOpen={this.state.isModalOpen} toggle={this.toggleModal} />
+                        <CommentForm isOpen={this.state.isModalOpen} toggle={this.toggleModal} dishId={this.props.dish.id} addComment={this.props.addComment}/>
                     </div>
 
                 </div>
