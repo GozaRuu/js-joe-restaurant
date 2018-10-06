@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardText, Breadcrumb, BreadcrumbItem, Modal, ModalHeader, ModalBody, Label, Row, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { LocalForm, Control } from 'react-redux-form';
+import { LocalForm, Control, Errors } from 'react-redux-form';
 
 
 const RenderDish = ({dish}) => {
@@ -47,7 +47,13 @@ class CommentForm extends Component {
         alert(JSON.stringify(values));
     }
 
+
+
     render() {
+        const required = (val) => val && val.length;
+        const maxLength = (len) => (val) => !(val) || (val.length <= len);
+        const minLength = (len) => (val) => (val) && (val.length >= len);
+
         return (
             <Modal isOpen={this.props.isOpen} toggle={this.props.toggle}>
                 <ModalHeader>Comment on this dish</ModalHeader>
@@ -68,7 +74,8 @@ class CommentForm extends Component {
                             </Row>
                             <Row class="form-group">
                                 <Label htmlFor="author">Author</Label>
-                                <Control.text className="form-control" model=".author" id="author" name="author"/>
+                                <Control.text className="form-control" model=".author" id="author" name="author" validators={{required, minLength: minLength(3), maxLength: maxLength(15)}} />
+                                <Errors className="text-danger" model=".author" show="touched" messages={{required: 'Required Field ', minLength: 'The length must be between 3 and 15 character ', maxLength: 'The length must be between 2 and 15 character '}}/>
                             </Row>
                             <Row className="form-group">
                                 <Label htmlFor="comment">Comment</Label>
