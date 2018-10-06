@@ -38,13 +38,6 @@ class Main extends Component {
             );
         };
 
-        const AboutCreator = () => {
-            const leaders = this.props.leaders;
-            return (
-                <About leaders={this.props.leaders}/>
-            );
-        };
-
         return (
             <div>
                 <Header />
@@ -52,7 +45,7 @@ class Main extends Component {
                         <Route path="/home" component={HomeComponentCreator} />
                         <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
                         <Route path="/menu/:dishId" component={SelectedDishCreator} />
-                        <Route path="/aboutus" component={AboutCreator} />
+                        <Route path="/aboutus" component={() => <About leaders={this.props.leaders}/>} />
                         <Route path="/contactus" component={Contact} />
                         <Redirect to="/home" />
                     </Switch>
