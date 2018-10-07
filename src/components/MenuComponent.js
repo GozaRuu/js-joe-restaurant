@@ -13,7 +13,7 @@ const Menu = (props) => {
                 </div>
             </div>
         );
-    } else if (props.errMess) {
+    } else if (props.dishes.errMess) {
         return (
             <div className="container">
                 <div className="row">
