@@ -2,6 +2,7 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent'
+import { baseUrl } from '../shared/baseUrl'
 
 function About(props) {
 
@@ -30,7 +31,7 @@ function About(props) {
                         return (
                             <Media style={{marginTop: '32px'}}>
                                 <Media left style={{marginRight: '60px'}}>
-                                    <Media object src={leader.image} alt={leader.name} width={140}  />
+                                    <Media object src={baseUrl + leader.image} alt={leader.name}  />
                                 </Media>
                                 <Media body>
                                     <Media heading>
