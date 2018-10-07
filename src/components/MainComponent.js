@@ -9,14 +9,15 @@ import Menu from './MenuComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
 import Dishdetail from './DishdetailComponent'
-import { addComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/actionCreators'
+import { addComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders, postFeedback } from '../redux/actionCreators'
 
 const mapStateToProps = (state) => {
     return {
         dishes: state.dishes,
         comments: state.comments,
         promotions: state.promotions,
-        leaders: state.leaders
+        leaders: state.leaders,
+        feedbackFormResponse: state.feedbackFormResponse
     };
 }
 
@@ -26,6 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
     fetchComments: () => {dispatch(fetchComments())},
     fetchPromos: () => {dispatch(fetchPromos())},
     fetchLeaders: () => {dispatch(fetchLeaders())},
+    postFeedback: (data) => {dispatch(postFeedback(data))},
     resetFeedbackForm: () => {dispatch(actions.reset('feedback'))}
 });
 
@@ -36,6 +38,7 @@ class Main extends Component {
         this.props.fetchComments();
         this.props.fetchPromos();
         this.props.fetchLeaders();
+
     }
 
     render() {
@@ -69,7 +72,7 @@ class Main extends Component {
                         <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
                         <Route path="/menu/:dishId" component={SelectedDishCreator} />
                         <Route path="/aboutus" component={() => <About leaders={this.props.leaders}/>} />
-                        <Route path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm}/>} />
+                        <Route path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} feedbackFormResponse={this.props.feedbackFormResponse}/>} />
                         <Redirect to="/home" />
                     </Switch>
                 <Footer />

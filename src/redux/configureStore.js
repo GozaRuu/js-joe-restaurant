@@ -6,7 +6,8 @@ import { dishes } from './reducers/dishes';
 import { comments } from './reducers/comments';
 import { promotions } from './reducers/promotions';
 import { leaders } from './reducers/leaders';
-import { InitialFeedback } from './forms/feedbackForm';
+import { feedbackFormResponse } from './reducers/feedbackFormResponse';
+import { initialFeedbackForm } from './forms/initialFeedbackForm';
 
 export const ConfigureStore = () => {
     const store = createStore(
@@ -15,8 +16,9 @@ export const ConfigureStore = () => {
             comments,
             promotions,
             leaders,
+            feedbackFormResponse,
             ...createForms({
-                feedback: InitialFeedback
+                feedback: initialFeedbackForm
             })
         }),
         applyMiddleware(thunk, logger)

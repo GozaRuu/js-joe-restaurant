@@ -82,6 +82,39 @@ export const fetchLeaders = () => (dispatch) =>{
         .catch(error => dispatch(leadersFailed(error.message)))
 };
 
+export const postFeedback = (data) => (dispatch) => {
+    return fetch(baseUrl + 'feedback')
+    .then(response => {
+        if(response.ok) {
+            return response;
+        } else {
+            const error = new Error(`Error:  ${response.status} :  ${response.statusText}`);
+            error.response = response;
+            throw error;
+        }
+    }, error => {
+        const err = new Error(error.message);
+        throw err;
+    })
+    .then(response => response.json())
+    .then(jsonResponse => {
+        const body = {...data, id: jsonResponse.length + 1, date: new Date().toISOString()};
+        console.log(body);
+        fetch(baseUrl + 'feedback', {
+            method: "POST",
+            mode: "cors",
+            credentials: "same-origin", // include, same-origin, *omit
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+            },
+            body: JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(feedback => dispatch(receiveFeedback(feedback)));
+    })
+
+
+}
 
 //actions creators
 
@@ -141,3 +174,8 @@ export const leadersFailed = (ermess) => ({
     type: actionTypes.LEADERS_FAILED,
     payload: ermess
 });
+
+export const receiveFeedback = (data) => ({
+    type: actionTypes.RECEIVE_FEEDBACK,
+    payload: data
+})
