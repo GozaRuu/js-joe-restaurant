@@ -1,6 +1,5 @@
 import * as actionTypes from './actionTypes';
 import { baseUrl } from '../shared/baseUrl'
-import { DISHES } from '../shared/dishes';
 
 //thunks
 
@@ -25,7 +24,7 @@ export const fetchPromos = () => (dispatch) =>{
 };
 
 export const fetchLeaders = () => (dispatch) =>{
-    dispatch(promosLoading(true));
+    dispatch(leadersLoading(true));
     return fetch(baseUrl + 'leaders')
         .then(response => response.json())
         .then(leaders => dispatch(addLeaders(leaders)))
@@ -50,7 +49,7 @@ export const addPromos = (promos) => ({
 });
 
 export const addLeaders = (leaders) => ({
-    type: actionTypes.ADD_PROMOS,
+    type: actionTypes.ADD_LEADERS,
     payload: leaders
 });
 

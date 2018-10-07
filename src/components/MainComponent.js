@@ -9,7 +9,7 @@ import Menu from './MenuComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
 import Dishdetail from './DishdetailComponent'
-import { addComment, fetchDishes } from '../redux/actionCreators'
+import { addComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/actionCreators'
 
 const mapStateToProps = (state) => {
     return {
@@ -23,6 +23,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
     addComment: (dish, rating, author, comment) => dispatch(addComment(dish, rating, author, comment)),
     fetchDishes: () => {dispatch(fetchDishes())},
+    fetchComments: () => {dispatch(fetchComments())},
+    fetchPromos: () => {dispatch(fetchPromos())},
+    fetchLeaders: () => {dispatch(fetchLeaders())},
     resetFeedbackForm: () => {dispatch(actions.reset('feedback'))}
 });
 
@@ -30,23 +33,31 @@ class Main extends Component {
 
     componentDidMount() {
         this.props.fetchDishes();
+        this.props.fetchComments();
+        this.props.fetchPromos();
+        this.props.fetchLeaders();
     }
 
     render() {
         const HomeComponentCreator = () => {
             const dish = this.props.dishes.dishes.filter((dish) => dish.featured)[0];
-            const promotion = this.props.promotions.filter((promotion) => promotion.featured)[0];
-            const leader = this.props.leaders.filter((leader) => leader.featured)[0];
+            const promo = this.props.promotions.promotions.filter((promotion) => promotion.featured)[0];
+            const leader = this.props.leaders.leaders.filter((leader) => leader.featured)[0];
             return (
-                <Home dish={dish} dishesLoading={this.props.dishes.isLoading} dishesErrMess={this.props.dishes.errMess} promotion={promotion} leader={leader} />
+                <Home dish={dish} dishLoading={this.props.dishes.isLoading} dishErrMess={this.props.dishes.errMess}
+                    promo={promo} promoLoading={this.props.promotions.isLoading} promoErrMess={this.props.promotions.errMess}
+                    leader={leader} leaderLoading={this.props.leaders.isLoading} leaderErrMess={this.props.leaders.errMess}
+                />
             );
         };
 
         const SelectedDishCreator = ({match}) => {
             const dish = this.props.dishes.dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0];
-            const comments = this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10));
+            const comments = this.props.comments.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10));
             return (
-                <Dishdetail dish={dish} isLoading={this.props.dishes.isLoading} errMess={this.props.dishes.errMess} comments={comments} addComment={this.props.addComment}/>
+                <Dishdetail dish={dish} isLoading={this.props.dishes.isLoading} errMess={this.props.dishes.errMess}
+                     comments={comments} commentsErrMess={this.props.comments.errMess} addComment={this.props.addComment}
+                 />
             );
         };
 
