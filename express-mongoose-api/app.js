@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -9,6 +10,13 @@ const userRouter = require('./routes/users');
 const dishRouter = require('./routes/dishes');
 const promotionRouter = require('./routes/promotions');
 const leaderRouter = require('./routes/leaders');
+
+
+const url = 'mongodb://localhost:27017/jsjoe';
+const connect = mongoose.connect(url, { useNewUrlParser: true });
+connect.then((db) => {
+	console.log('successful connection to database...');
+}).catch((err) => console.log(err));
 
 const app = express();
 
