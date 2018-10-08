@@ -8,3 +8,23 @@ It's made purely for an educational and a long-term technology demoing/testing p
 A Glitch Remix will be added soon.
 
 # Currently Under Development
+
+# React client:
+
+version 0.1.0 of the react client is ready:
+
+shell 1:
+`cd react-redux-client
+yarn install`
+
+`npm install -g json-server`
+
+`cd react-redux-client
+
+`yarn build`
+
+`cp -a /build/. /development-server-contents/`
+
+`cd development-server-contents`
+
+`json-server --watch db.json -p 3001 -d 2000`
