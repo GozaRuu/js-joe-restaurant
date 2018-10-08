@@ -11,6 +11,7 @@ const dishRouter = require('./routes/dishes');
 const promotionRouter = require('./routes/promotions');
 const leaderRouter = require('./routes/leaders');
 
+const Dishes = require('./models/dishes');
 
 const url = 'mongodb://localhost:27017/jsjoe';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
