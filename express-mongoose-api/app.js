@@ -19,9 +19,6 @@ const dishRouter = require('./routes/dishes');
 const promotionRouter = require('./routes/promotions');
 const leaderRouter = require('./routes/leaders');
 
-//loading authentication strategy
-const auth = require('./common/auth');
-
 //setting up database connection
 const url = process.env.DB_URL || 'mongodb://localhost:27017/jsjoe';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
@@ -51,15 +48,26 @@ app.use(session({
 	store: new FileStore()
 }));
 
-//user authentification middleware setup
+//inclusive routers setup
+app.use('/', indexRouter);
+app.use('/users', userRouter);
+
+//user authentication middleware setup
+const auth = (req, res, next) => {
+	if(!req.session.user || req.session.user !== 'authenticated') {
+		const err = new Error('You are not authenticated!');
+		err.status = req.session.user ? 403 : 401;
+		return next(err);
+	}
+	next();
+}
+//IMPORTANT: this middleware must be setup bofre the exclusive routers
 app.use(auth);
 
 //static file server setup
 app.use(express.static(path.join(__dirname, 'public')));
 
-//routers setup
-app.use('/', indexRouter);
-app.use('/users', userRouter);
+//exlusive routers setup
 app.use('/dishes', dishRouter);
 app.use('/promotions', promotionRouter);
 app.use('/leaders', leaderRouter);
