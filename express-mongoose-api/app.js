@@ -34,8 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', userRouter);
 app.use('/dishes', dishRouter);
-app.use('/promotions', dishRouter);
-app.use('/leaders', dishRouter);
+app.use('/promotions', promotionRouter);
+app.use('/leaders', leaderRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
