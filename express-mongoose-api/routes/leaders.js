@@ -1,37 +1,81 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const Leaders = require('../models/leaders');
 
 const leaderRouter = express.Router();
 
 leaderRouter.use(bodyParser.json());
 
 leaderRouter.route('/')
-	.all((req,res,next) => {
-	    res.statusCode = 200;
-	    res.setHeader('Content-Type', 'text/plain');
-	    next();
-	})
 	.get((req,res,next) => {
-	    res.end('Will send all the leaders to you!');
+	    Leaders.find({})
+		.then((leaders) => {
+			res.statusCode = 200;
+			res.json(leaders);
+		})
+		.catch((err) => next(err));
 	})
 	.post((req, res, next) => {
-	    res.end(`Will add the leader: ${ req.body.name} with details: ${req.body.description}`);
+	    Leaders.create(req.body)
+		.then((leader) => {
+			res.statusCode = 200;
+			res.json(leader);
+		});
 	})
 	.put((req, res, next) => {
 	    res.statusCode = 403;
 	    res.end('PUT operation not supported on /leaders');
 	})
 	.delete((req, res, next) => {
-	    res.end('Deleting all leaders');
+	    Leaders.remove({})
+		.then((response) => {
+			res.statusCode = 200;
+			res.json(response);
+		})
+		.catch((err) => next(err));
 	});
+
+leaderRouter.use('/:leaderId', (req, res, next) => {
+	Leaders.findById(req.params.leaderId)
+	.then((leader) => {
+		if(leader === null){
+			const err = new Error(`Leader ${req.params.leaderId} not found`);
+			err.status = 404;
+			next(err);
+			return;
+		}
+		req.leader = leader;
+		next();
+	})
+	.catch((err) => next(err));
+})
 
 leaderRouter.route('/:leaderId')
-	.all((req,res,next) => {
-	    res.statusCode = 200;
-	    res.setHeader('Content-Type', 'text/plain');
-	    res.end(`Will send you leader number ${req.params.leaderId}`);
+	.get((req,res,next) => {
+		res.statusCode = 200;
+		res.json(req.leader);
+	})
+	.post((req, res, next) => {
+		res.statusCode = 403;
+		res.end(`POST operation not supported on /leaders/${req.params.leaderId}`);
+	})
+	.put((req, res, next) => {
+		req.leader._doc = { ...req.leader._doc, ...req.body }; //is this recreating the document ?
+		req.leader.save()
+		.then((leader) => {
+			res.statusCode = 200;
+			res.json(leader);
+		})
+		.catch((err) => next(err));
+	})
+	.delete((req, res, next) => {
+		req.leader.remove()
+		.then((response) => {
+			res.statusCode = 200;
+			res.json(response);
+		})
+		.catch((err) => next(err));
 	});
-
 
 
 module.exports = leaderRouter;
