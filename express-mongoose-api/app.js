@@ -1,3 +1,8 @@
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').load();
+}
+
+//loading dependencies
 const express = require('express');
 const mongoose = require('mongoose');
 const createError = require('http-errors');
