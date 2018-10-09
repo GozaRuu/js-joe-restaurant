@@ -10,15 +10,18 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
-//requiring routers
+//loading routers
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/users');
 const dishRouter = require('./routes/dishes');
 const promotionRouter = require('./routes/promotions');
 const leaderRouter = require('./routes/leaders');
 
+//loading authentication strategy
+const auth = require('./common/auth');
+
 //setting up database connection
-const url = 'mongodb://localhost:27017/jsjoe';
+const url = process.env.DB_URL || 'mongodb://localhost:27017/jsjoe';
 const connect = mongoose.connect(url, { useNewUrlParser: true });
 connect.then((db) => {
 	console.log('successful connection to database...');
@@ -35,7 +38,12 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(process.env.SECRET || '12345'));
+
+//set up authentification middleware
+app.use(auth);
+
+//static file server
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Routers setup
