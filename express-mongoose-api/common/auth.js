@@ -1,7 +1,7 @@
 //HTTP Basic Authentification middleware
 const basicAuth = (req, res, next) => {
-    console.log(req.signedCookies);
-	if (!req.signedCookies.user) {
+    console.log(req.session);
+	if (!req.session.user) {
       const authHeader = req.headers.authorization;
       if (!authHeader) {
           const err = new Error('You are not authenticated!');
@@ -14,7 +14,8 @@ const basicAuth = (req, res, next) => {
       const user = auth[0];
       const pass = auth[1];
       if (user == 'admin' && pass == '123') {
-          res.cookie('user','admin',{signed: true}); //send a cookie to the user
+          // res.cookie('user','admin',{signed: true}); //send a cookie to the user
+		  req.session.user = 'admin';
           next(); // authorized
       } else {
           const err = new Error('You are not authenticated!');
@@ -24,7 +25,7 @@ const basicAuth = (req, res, next) => {
       }
     }
     else {
-        if (req.signedCookies.user === 'admin') {
+        if (req.session.user === 'admin') {
             next();
         }
         else {

@@ -5,10 +5,12 @@ if (process.env.NODE_ENV !== 'production') {
 //loading dependencies
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const createError = require('http-errors');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-const path = require('path');
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 
 //loading routers
 const indexRouter = require('./routes/index');
@@ -34,27 +36,36 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-//express middleware setup
+//misc middleware setup
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser(process.env.SECRET || '12345'));
 
-//set up authentification middleware
+//cookies middleware setup
+// app.use(cookieParser(process.env.SECRET || '12345'));
+app.use(session({
+	name: 'session-id',
+	secret: process.env.SECRET || '12345',
+	saveUninitialized: false,
+	resave: false,
+	store: new FileStore()
+}));
+
+//user authentification middleware setup
 app.use(auth);
 
-//static file server
+//static file server setup
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Routers setup
+//routers setup
 app.use('/', indexRouter);
 app.use('/users', userRouter);
 app.use('/dishes', dishRouter);
 app.use('/promotions', promotionRouter);
 app.use('/leaders', leaderRouter);
 
-// Default route: catch 404 and forward to error handler..
-//HAVE TO BE THE LAST ROUTER
+// default route: catch 404 and forward to error handler..
+//IMPORTANT: MUST BE LAST ROUTER
 app.use((req, res, next) => {
 	next(createError(404));
 });
