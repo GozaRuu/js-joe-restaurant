@@ -60,6 +60,7 @@ commentRouter.route('/:commentId')
 	})
 	.put((req, res, next) => {
 		req.comment._doc = {...req.comment._doc, ...req.body};
+		req.comment._doc.updatedAt = new Date().toISOString();
 		req.dish.save()
 		.then((dish) => {
 			res.statusCode = 200;

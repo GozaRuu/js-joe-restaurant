@@ -61,6 +61,7 @@ promotionRouter.route('/:promotionId')
 	})
 	.put((req, res, next) => {
 		req.promotion._doc = { ...req.promotion._doc, ...req.body };
+		req.promotion._doc.updatedAt = new Date().toISOString();
 		req.promotion.save()
 		.then((promotion) => {
 			res.statusCode = 200;

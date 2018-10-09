@@ -60,7 +60,8 @@ leaderRouter.route('/:leaderId')
 		res.end(`POST operation not supported on /leaders/${req.params.leaderId}`);
 	})
 	.put((req, res, next) => {
-		req.leader._doc = { ...req.leader._doc, ...req.body }; //is this recreating the document ?
+		req.leader._doc = { ...req.leader._doc, ...req.body };
+		req.leader._doc.updatedAt = new Date().toISOString();
 		req.leader.save()
 		.then((leader) => {
 			res.statusCode = 200;
