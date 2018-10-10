@@ -19,8 +19,12 @@ const dishRouter = require('./routes/dishes');
 const promotionRouter = require('./routes/promotions');
 const leaderRouter = require('./routes/leaders');
 
+//loading config
+const appConfig = require('./config/app.config');
+const passportConfig = require('./config/passport.config');
+
 //setting up database connection
-const url = process.env.DB_URL || 'mongodb://localhost:27017/jsjoe';
+const url = appConfig.mongoUrl;
 const connect = mongoose.connect(url, { useNewUrlParser: true });
 connect.then((db) => {
 	console.log('successful connection to database...');
@@ -42,7 +46,7 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser(process.env.SECRET || '12345'));
 app.use(session({
 	name: 'session-id',
-	secret: process.env.SECRET || '12345',
+	secret: appConfig.secret,
 	saveUninitialized: false,
 	resave: false,
 	store: new FileStore()
