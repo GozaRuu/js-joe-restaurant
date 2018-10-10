@@ -2,39 +2,41 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Leaders = require('../models/leaders');
 const authenticate = require('../config/passport.config').verifyUser;
+const cors = require('../config/cors.config');
 
 const leaderRouter = express.Router();
 
 leaderRouter.use(bodyParser.json());
 
 leaderRouter.route('/')
-	.get((req,res,next) => {
-	    Leaders.find({})
-		.then((leaders) => {
-			res.statusCode = 200;
-			res.json(leaders);
-		})
-		.catch((err) => next(err));
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.cors, (req,res,next) => {
+    Leaders.find({})
+	.then((leaders) => {
+		res.statusCode = 200;
+		res.json(leaders);
 	})
-	.post(authenticate, (req, res, next) => {
-	    Leaders.create(req.body)
-		.then((leader) => {
-			res.statusCode = 200;
-			res.json(leader);
-		});
-	})
-	.put(authenticate, (req, res, next) => {
-	    res.statusCode = 403;
-	    res.end('PUT operation not supported on /leaders');
-	})
-	.delete(authenticate, (req, res, next) => {
-	    Leaders.remove({})
-		.then((response) => {
-			res.statusCode = 200;
-			res.json(response);
-		})
-		.catch((err) => next(err));
+	.catch((err) => next(err));
+})
+.post(cors.corsWithOptions, authenticate, (req, res, next) => {
+    Leaders.create(req.body)
+	.then((leader) => {
+		res.statusCode = 200;
+		res.json(leader);
 	});
+})
+.put(cors.corsWithOptions, authenticate, (req, res, next) => {
+    res.statusCode = 403;
+    res.end('PUT operation not supported on /leaders');
+})
+.delete(cors.corsWithOptions, authenticate, (req, res, next) => {
+    Leaders.remove({})
+	.then((response) => {
+		res.statusCode = 200;
+		res.json(response);
+	})
+	.catch((err) => next(err));
+});
 
 leaderRouter.use('/:leaderId', (req, res, next) => {
 	Leaders.findById(req.params.leaderId)
@@ -52,32 +54,33 @@ leaderRouter.use('/:leaderId', (req, res, next) => {
 })
 
 leaderRouter.route('/:leaderId')
-	.get((req,res,next) => {
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.cors, (req,res,next) => {
+	res.statusCode = 200;
+	res.json(req.leader);
+})
+.post(cors.corsWithOptions, authenticate, (req, res, next) => {
+	res.statusCode = 403;
+	res.end(`POST operation not supported on /leaders/${req.params.leaderId}`);
+})
+.put(authenticate, (req, res, next) => {
+	req.leader._doc = { ...req.leader._doc, ...req.body };
+	req.leader._doc.updatedAt = new Date().toISOString();
+	req.leader.save()
+	.then((leader) => {
 		res.statusCode = 200;
-		res.json(req.leader);
+		res.json(leader);
 	})
-	.post(authenticate, (req, res, next) => {
-		res.statusCode = 403;
-		res.end(`POST operation not supported on /leaders/${req.params.leaderId}`);
+	.catch((err) => next(err));
+})
+.delete(cors.corsWithOptions, authenticate, (req, res, next) => {
+	req.leader.remove()
+	.then((response) => {
+		res.statusCode = 200;
+		res.json(response);
 	})
-	.put(authenticate, (req, res, next) => {
-		req.leader._doc = { ...req.leader._doc, ...req.body };
-		req.leader._doc.updatedAt = new Date().toISOString();
-		req.leader.save()
-		.then((leader) => {
-			res.statusCode = 200;
-			res.json(leader);
-		})
-		.catch((err) => next(err));
-	})
-	.delete(authenticate, (req, res, next) => {
-		req.leader.remove()
-		.then((response) => {
-			res.statusCode = 200;
-			res.json(response);
-		})
-		.catch((err) => next(err));
-	});
+	.catch((err) => next(err));
+});
 
 
 module.exports = leaderRouter;

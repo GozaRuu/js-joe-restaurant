@@ -1,7 +1,8 @@
 const express = require('express');
+const multer = require('multer');
 const bodyParser = require('body-parser');
 const authenticate = require('../config/passport.config').verifyUser;
-const multer = require('multer');
+const cors = require('../config/cors.config');
 
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
@@ -23,20 +24,21 @@ const uploadRouter = express.Router();
 uploadRouter.use(bodyParser.json());
 
 uploadRouter.route('/')
-.post(authenticate, upload.single('imageFile'), (req, res) => {
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.post(cors.corsWithOptions, authenticate, upload.single('imageFile'), (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Content-Type', 'application/json');
 	res.json(req.file);
 })
-.get(authenticate, (req, res) => {
+.get(cors.cors, authenticate, (req, res) => {
 	res.statusCode = 403;
 	res.end('GET operation not supported on /imageUpload');
 })
-.put(authenticate, (req, res) => {
+.put(cors.corsWithOptions, authenticate, (req, res) => {
 	res.statusCode = 403;
 	res.end('PUT operation not supported on /imageUpload');
 })
-.delete(authenticate, (req, res) => {
+.delete(cors.corsWithOptions, authenticate, (req, res) => {
 	res.statusCode = 403;
 	res.end('DELETE operation not supported on /imageUpload');
 })

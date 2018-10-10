@@ -2,39 +2,41 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Promotions = require('../models/promotions');
 const authenticate = require('../config/passport.config').verifyUser;
+const cors = require('../config/cors.config');
 
 const promotionRouter = express.Router();
 
 promotionRouter.use(bodyParser.json());
 
 promotionRouter.route('/')
-	.get((req,res,next) => {
-	    Promotions.find({})
-		.then((promotions) => {
-			res.statusCode = 200;
-			res.json(promotions);
-		})
-		.catch((err) => next(err));
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.corsWithOptions, (req,res,next) => {
+    Promotions.find({})
+	.then((promotions) => {
+		res.statusCode = 200;
+		res.json(promotions);
 	})
-	.post(authenticate, (req, res, next) => {
-	    Promotions.create(req.body)
-		.then((promotion) => {
-			res.statusCode = 200;
-			res.json(promotion);
-		});
-	})
-	.put(authenticate, (req, res, next) => {
-	    res.statusCode = 403;
-	    res.end('PUT operation not supported on /promotions');
-	})
-	.delete((req, res, next) => {
-	    Promotions.remove({})
-		.then((response) => {
-			res.statusCode = 200;
-			res.json(response);
-		})
-		.catch((err) => next(err));
+	.catch((err) => next(err));
+})
+.post(cors.corsWithOptions, authenticate, (req, res, next) => {
+    Promotions.create(req.body)
+	.then((promotion) => {
+		res.statusCode = 200;
+		res.json(promotion);
 	});
+})
+.put(cors.corsWithOptions, authenticate, (req, res, next) => {
+    res.statusCode = 403;
+    res.end('PUT operation not supported on /promotions');
+})
+.delete(cors.corsWithOptions, authenticate, (req, res, next) => {
+    Promotions.remove({})
+	.then((response) => {
+		res.statusCode = 200;
+		res.json(response);
+	})
+	.catch((err) => next(err));
+});
 
 promotionRouter.use('/:promotionId', (req, res, next) => {
 	Promotions.findById(req.params.promotionId)
@@ -52,32 +54,33 @@ promotionRouter.use('/:promotionId', (req, res, next) => {
 })
 
 promotionRouter.route('/:promotionId')
-	.get((req,res,next) => {
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.corsWithOptions, (req,res,next) => {
+	res.statusCode = 200;
+	res.json(req.promotion);
+})
+.post(cors.corsWithOptions, authenticate, (req, res, next) => {
+	res.statusCode = 403;
+	res.end(`POST operation not supported on /promotions/${req.params.promotionId}`);
+})
+.put(cors.corsWithOptions, authenticate, (req, res, next) => {
+	req.promotion._doc = { ...req.promotion._doc, ...req.body };
+	req.promotion._doc.updatedAt = new Date().toISOString();
+	req.promotion.save()
+	.then((promotion) => {
 		res.statusCode = 200;
-		res.json(req.promotion);
+		res.json(promotion);
 	})
-	.post(authenticate, (req, res, next) => {
-		res.statusCode = 403;
-		res.end(`POST operation not supported on /promotions/${req.params.promotionId}`);
+	.catch((err) => next(err));
+})
+.delete(cors.corsWithOptions, authenticate, (req, res, next) => {
+	req.promotion.remove()
+	.then((response) => {
+		res.statusCode = 200;
+		res.json(response);
 	})
-	.put(authenticate, (req, res, next) => {
-		req.promotion._doc = { ...req.promotion._doc, ...req.body };
-		req.promotion._doc.updatedAt = new Date().toISOString();
-		req.promotion.save()
-		.then((promotion) => {
-			res.statusCode = 200;
-			res.json(promotion);
-		})
-		.catch((err) => next(err));
-	})
-	.delete(authenticate, (req, res, next) => {
-		req.promotion.remove()
-		.then((response) => {
-			res.statusCode = 200;
-			res.json(response);
-		})
-		.catch((err) => next(err));
-	});
+	.catch((err) => next(err));
+});
 
 
 module.exports = promotionRouter;

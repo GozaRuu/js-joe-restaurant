@@ -3,16 +3,17 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const Users = require('../models/users');
 const getToken = require('../config/passport.config').getToken;
+const cors = require('../config/cors.config');
 
 const router = express.Router();
 router.use(bodyParser.json());
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', cors.corsWithOptions, function(req, res, next) {
 	res.send('respond with a resource');
 });
 
-router.post('/signup', (req, res, next) => {
+router.post('/signup', cors.corsWithOptions, (req, res, next) => {
 	console.log(req.body);
 	Users.register(new Users({username: req.body.username}), req.body.password, (err, user) =>{
 		if (err) {
@@ -42,14 +43,14 @@ router.post('/signup', (req, res, next) => {
 	});
 });
 
-router.post('/login', passport.authenticate('local'), (req, res, next) => {
+router.post('/login', cors.corsWithOptions, passport.authenticate('local'), (req, res, next) => {
 	const token = getToken({_id: req.user._id}); //create jwt and send it on login
 	res.statusCode = 200;
 	res.setHeader('Content-Type', 'text/plain');
 	res.json({success: true, token: token, status: 'Login Successful'})
 });
 
-router.get('/logout', (req, res) => {
+router.get('/logout', cors.corsWithOptions, (req, res) => {
 	if (req.session) {
 		req.session.destroy();
 		res.clearCookie('session-id');
