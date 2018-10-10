@@ -39,7 +39,6 @@ app.use(express.urlencoded({ extended: false }));
 
 //passport Authentication setup
 app.use(passport.initialize());
-// app.use(passport.session()); //IMPORTANT: have to be setup after express-session
 
 //inclusive routers setup
 app.use('/', indexRouter);

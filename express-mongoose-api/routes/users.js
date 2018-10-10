@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/signup', (req, res, next) => {
 	console.log(req.body);
-	Users.register(new Users({username: req.body.username}), req.body.password, (err) =>{
+	Users.register(new Users({username: req.body.username}), req.body.password, (err, user) =>{
 		if (err) {
 			console.log('error while user register...');
 			console.log('error name:', err.name || '');
@@ -24,10 +24,20 @@ router.post('/signup', (req, res, next) => {
 			return;
 		}
 		//automatic login after register
-		passport.authenticate('local')(req, res, () => {
-			res.statusCode = 200;
-			res.setHeader('Content-Type', 'application/json');
-			res.json({success: true, status: 'Registration Successful'});
+		if(req.body.firstname) user.firstname = req.body.firstname;
+		if(req.body.lastname) user.lastname = req.body.lastname;
+		user.save()
+		.then((updatedUser) => {
+			passport.authenticate('local')(req, res, () => {
+				res.statusCode = 200;
+				res.setHeader('Content-Type', 'application/json');
+				res.json({success: true, status: 'Registration Successful'});
+			});
+		})
+		.catch((err) => {
+				res.statusCode = 500;
+				res.setHeader('Content-Type', 'application/json');
+				res.json({success: false, error: err});
 		});
 	});
 });

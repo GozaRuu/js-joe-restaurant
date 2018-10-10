@@ -10,6 +10,7 @@ dishRouter.use(bodyParser.json());
 dishRouter.route('/')
 	.get((req,res,next) => {
 	    Dishes.find({})
+		.populate('comments.author')
 		.then((dishes) => {
 			res.statusCode = 200;
 			res.setHeader('Content-Type', 'application/json');
@@ -46,6 +47,7 @@ dishRouter.route('/')
 dishRouter.route('/:dishId')
 	.get((req, res, next) => {
 		Dishes.findById(req.params.dishId)
+		.populate('comments.author')
 		.then((dish) => {
 			res.statusCode = 200;
 			res.setHeader('Content-Type', 'application/json');
@@ -80,6 +82,7 @@ dishRouter.route('/:dishId')
 //routing comment requests
 dishRouter.use('/:dishId/comments',(req, res, next) => {
 	Dishes.findById(req.params.dishId)
+	.populate('comments.author')
 	.then((dish) => {
 		if (dish === null) {
 			const err = new Error(`Dish ${req.params.dishId} not found`);

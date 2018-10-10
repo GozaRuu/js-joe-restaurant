@@ -2,6 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const commentRouter = express.Router();
 const authenticate = require('../config/passport.config').verifyUser;
+const Users = require('../models/users');
 
 commentRouter.route('/')
 	.get((req, res, next) => {
@@ -10,14 +11,21 @@ commentRouter.route('/')
 		res.json(req.dish.comments);
 	})
 	.post(authenticate, (req, res, next) => {
+		req.body.author = req.user._id;
 		req.dish.comments.push(req.body);
 		req.dish.save()
 		.then((dish) => {
 			res.statusCode = 200;
 			res.setHeader('Content-Type', 'application/json');
-			res.json(dish);
+			//manual population here
+			Users.findById(req.user._id)
+			.then((user) => {
+				dish.comments[dish.comments.length-1].author = user._doc;
+				res.json(dish);
+			})
 		})
 		.catch((err) => next(err));
+
 	})
 	.put(authenticate, (req, res, next) => {
 		res.statusCode = 403;
