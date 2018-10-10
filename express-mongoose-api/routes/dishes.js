@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const Dishes = require('../models/dishes');
 const commentRouter = require('./comments');
 const authenticate = require('../config/passport.config').verifyUser;
+const cors = require('../config/cors.config');
 
 const dishRouter = express.Router();
 dishRouter.use(bodyParser.json());
