@@ -4,9 +4,11 @@
  * Module dependencies.
  */
 
+ const fs = require('fs');
+ const http = require('http');
+ const https = require('https');
 const app = require('../app');
 const debug = require('debug')('express-mongoose-api:server');
-const http = require('http');
 
 const appConfig = require('../config/app.config');
 
@@ -63,7 +65,7 @@ const onError = (error) => {
  * Event listener for HTTP server "listening" event.
  */
 
-const onListening = () => {
+const onListening = (server) => () => {
   const addr = server.address();
   const bind = typeof addr === 'string'
     ? 'pipe ' + addr
@@ -77,6 +79,7 @@ const onListening = () => {
 
 const port = normalizePort(appConfig.port);
 app.set('port', port);
+app.set('secPort', port + 443)
 
 /**
  * Create HTTP server.
@@ -85,9 +88,31 @@ app.set('port', port);
 const server = http.createServer(app);
 
 /**
- * Listen on provided port, on all network interfaces.
+ * Create HTTPS secure server.
+ */
+
+ const options = {
+	 key: fs.readFileSync(__dirname + '/private.key'),
+	 cert: fs.readFileSync(__dirname + '/certificate.pem')
+ };
+ const secureServer = https.createServer(options, app);
+
+
+/**
+ * HTTP server listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
 server.on('error', onError);
-server.on('listening', onListening);
+server.on('listening', onListening(server));
+
+/**
+ * HTTPS secure server listen on provided port, on all network interfaces.
+ */
+
+
+secureServer.listen(app.get('secPort'), () => {
+	console.log(`secure server listening on port ${app.get('secPort')}`);
+});
+secureServer.on('error', onError);
+secureServer.on('listening', onListening(secureServer));
