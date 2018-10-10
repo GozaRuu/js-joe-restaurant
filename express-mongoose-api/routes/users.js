@@ -2,6 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const Users = require('../models/users');
+const getToken = require('../config/passport.config').getToken;
 
 const router = express.Router();
 router.use(bodyParser.json());
@@ -32,10 +33,10 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
-	console.log(req.user);
+	const token = getToken({_id: req.user._id}); //create jwt and send it on login
 	res.statusCode = 200;
 	res.setHeader('Content-Type', 'text/plain');
-	res.json({success: true, status: 'Login Successful'})
+	res.json({success: true, token: token, status: 'Login Successful'})
 });
 
 router.get('/logout', (req, res) => {

@@ -1,5 +1,7 @@
 const express = require('express');
+const passport = require('passport');
 const commentRouter = express.Router();
+const authenticate = require('../config/passport.config').verifyUser;
 
 commentRouter.route('/')
 	.get((req, res, next) => {
@@ -7,7 +9,7 @@ commentRouter.route('/')
 		res.setHeader('Content-Type', 'application/json');
 		res.json(req.dish.comments);
 	})
-	.post((req, res, next) => {
+	.post(authenticate, (req, res, next) => {
 		req.dish.comments.push(req.body);
 		req.dish.save()
 		.then((dish) => {
@@ -17,11 +19,11 @@ commentRouter.route('/')
 		})
 		.catch((err) => next(err));
 	})
-	.put((req, res, next) => {
+	.put(authenticate, (req, res, next) => {
 		res.statusCode = 403;
 		res.end(`PUT operation not supported on /dishes/${req.params.dishId}/comments`);
 	})
-	.delete((req, res, next) => {
+	.delete(authenticate, (req, res, next) => {
 		let comments = req.dish.comments;
 		for (let i = (comments.length -1); i >= 0; i--) {
 			comments.id(comments[i]._id).remove();
@@ -54,11 +56,11 @@ commentRouter.route('/:commentId')
 		res.setHeader('Content-Type', 'application/json');
 		res.json(req.comment);
 	})
-	.post((req, res, next) => {
+	.post(authenticate, (req, res, next) => {
 		res.statusCode = 403;
 		res.end(`POST operation not supported on /dishes/${req.params.dishId}/comments/${req.params.commentId}`);
 	})
-	.put((req, res, next) => {
+	.put(authenticate, (req, res, next) => {
 		req.comment._doc = {...req.comment._doc, ...req.body};
 		req.comment._doc.updatedAt = new Date().toISOString();
 		req.dish.save()
@@ -69,7 +71,7 @@ commentRouter.route('/:commentId')
 		})
 		.catch((err) => next(err));
 	})
-	.delete((req, res, next) => {
+	.delete(authenticate, (req, res, next) => {
 		req.comment.remove();
 		req.dish.save()
 		.then((dish) => {

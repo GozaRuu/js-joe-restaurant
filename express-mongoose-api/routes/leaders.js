@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Leaders = require('../models/leaders');
+const authenticate = require('../config/passport.config').verifyUser;
 
 const leaderRouter = express.Router();
 
@@ -15,18 +16,18 @@ leaderRouter.route('/')
 		})
 		.catch((err) => next(err));
 	})
-	.post((req, res, next) => {
+	.post(authenticate, (req, res, next) => {
 	    Leaders.create(req.body)
 		.then((leader) => {
 			res.statusCode = 200;
 			res.json(leader);
 		});
 	})
-	.put((req, res, next) => {
+	.put(authenticate, (req, res, next) => {
 	    res.statusCode = 403;
 	    res.end('PUT operation not supported on /leaders');
 	})
-	.delete((req, res, next) => {
+	.delete(authenticate, (req, res, next) => {
 	    Leaders.remove({})
 		.then((response) => {
 			res.statusCode = 200;
@@ -55,11 +56,11 @@ leaderRouter.route('/:leaderId')
 		res.statusCode = 200;
 		res.json(req.leader);
 	})
-	.post((req, res, next) => {
+	.post(authenticate, (req, res, next) => {
 		res.statusCode = 403;
 		res.end(`POST operation not supported on /leaders/${req.params.leaderId}`);
 	})
-	.put((req, res, next) => {
+	.put(authenticate, (req, res, next) => {
 		req.leader._doc = { ...req.leader._doc, ...req.body };
 		req.leader._doc.updatedAt = new Date().toISOString();
 		req.leader.save()
@@ -69,7 +70,7 @@ leaderRouter.route('/:leaderId')
 		})
 		.catch((err) => next(err));
 	})
-	.delete((req, res, next) => {
+	.delete(authenticate, (req, res, next) => {
 		req.leader.remove()
 		.then((response) => {
 			res.statusCode = 200;

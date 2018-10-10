@@ -37,35 +37,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//cookies middleware setup
-//app.use(cookieParser(appConfig.secret));
-app.use(session({
-	name: 'session-id',
-	secret: appConfig.secret,
-	saveUninitialized: false,
-	resave: false,
-	store: new FileStore()
-}));
-
 //passport Authentication setup
 app.use(passport.initialize());
-app.use(passport.session()); //IMPORTANT: have to be setup after express-session
+// app.use(passport.session()); //IMPORTANT: have to be setup after express-session
 
 //inclusive routers setup
 app.use('/', indexRouter);
 app.use('/users', userRouter);
-
-//user authentication middleware setup
-const auth = (req, res, next) => {
-	if (!req.user) {
-		const err = new Error('You are not authenticated!');
-		err.status = 403;
-		return next(err);
-	}
-	next();
-}
-//IMPORTANT: this middleware must be setup bofre the exclusive routers
-app.use(auth);
 
 //static file server setup
 app.use(express.static(path.join(__dirname, 'public')));
