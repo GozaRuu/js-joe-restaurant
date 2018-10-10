@@ -28,6 +28,15 @@ mongoose.connect(appConfig.mongoUrl, { useNewUrlParser: true })
 //creating express app
 const app = express();
 
+//redirect any requests on the HTTP server to the secure HTTPS server
+app.all('*', (req, res, next) => {
+	if (!req.secure) {
+		res.redirect(307, `https://${req.hostname}:${app.get('secPort')}${req.url}`);
+		return;
+	}
+	next();
+})
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
