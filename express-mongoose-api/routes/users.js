@@ -1,76 +1,41 @@
 const express = require('express');
+const passport = require('passport');
 const bodyParser = require('body-parser');
 const Users = require('../models/users');
 
 const router = express.Router();
 router.use(bodyParser.json());
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	res.send('respond with a resource');
 });
 
 router.post('/signup', (req, res, next) => {
-	Users.findOne({username: req.body.username})
-	.then((user) => {
-		if(user !== null) {
-			const err = new Error(`User ${req.body.username} Exisits`);
-			err.status = 403;
-			throw err;
+	console.log(req.body);
+	Users.register(new Users({username: req.body.username}), req.body.password, (err) =>{
+		if (err) {
+			console.log('error while user register...');
+			console.log('error name:', err.name || '');
+			res.statusCode = 500;
+			res.setHeader('Content-Type', 'application/json');
+			res.json({success: false, error: err.name});
+			return;
 		}
-		return Users.create({
-			username: req.body.username,
-			password: req.body.password
-		})
-	})
-	.then((user) => {
-		res.statusCode = 200;
-		res.setHeader('Content-Type', 'application/json');
-		res.json({status: 'Registration Successful', user: user});
-	})
-	.catch((err) => next(err));
+		//automatic login after register
+		passport.authenticate('local')(req, res, () => {
+			res.statusCode = 200;
+			res.setHeader('Content-Type', 'application/json');
+			res.json({success: true, status: 'Registration Successful'});
+		});
+	});
 });
 
-router.post('/login', (req, res, next) => {
-	if (!req.session.user) {
-		const authHeader = req.headers.authorization;
-		if (!authHeader) {
-			const err = new Error('Not Authenticated');
-			res.setHeader('WWW-Authenticate', 'Basic');
-			err.status = 401;
-			return next(err);
-		}
-		try {
-			const auth = new Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
-			const username = auth[0];
-			const password = auth[1];
-			Users.findOne({username: username})
-			.then((user) => {
-				if (user === null) {
-					const err = new Error(`User ${username} Does Not Exist`);
-					err.status = 403;
-					return next(err);
-				}
-				if (user.password !== password) {
-					const err = new Error(`Incorrect Password`);
-					err.status = 403;
-					return next(err);
-				}
-				req.session.user = 'authenticated';
-				res.statusCode = 200;
-				res.setHeader('Content-Type', 'text/plain');
-				res.end('Authentication Successful')
-			})
-			.catch((err) => next(err));
-		} catch (e) {
-			const err = new Error(`Incorrect Credential Format`);
-			err.status = 403;
-			return next(err);
-		}
-		return;
-	}
+router.post('/login', passport.authenticate('local'), (req, res, next) => {
+	console.log(req.user);
 	res.statusCode = 200;
 	res.setHeader('Content-Type', 'text/plain');
-	res.end('User Authenticated');
+	res.json({success: true, status: 'Login Successful'})
 });
 
 router.get('/logout', (req, res) => {

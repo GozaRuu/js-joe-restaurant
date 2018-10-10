@@ -1,16 +1,16 @@
-if (process.env.NODE_ENV !== 'production') {
-	require('dotenv').load();
-}
-
-//loading dependencies
 const express = require('express');
 const mongoose = require('mongoose');
+const passport = require('passport');
 const path = require('path');
 const createError = require('http-errors');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+
+//loading config
+const appConfig = require('./config/app.config');
+const passportConfig = require('./config/passport.config');
 
 //loading routers
 const indexRouter = require('./routes/index');
@@ -19,14 +19,9 @@ const dishRouter = require('./routes/dishes');
 const promotionRouter = require('./routes/promotions');
 const leaderRouter = require('./routes/leaders');
 
-//loading config
-const appConfig = require('./config/app.config');
-const passportConfig = require('./config/passport.config');
-
 //setting up database connection
-const url = appConfig.mongoUrl;
-const connect = mongoose.connect(url, { useNewUrlParser: true });
-connect.then((db) => {
+mongoose.connect(appConfig.mongoUrl, { useNewUrlParser: true })
+.then((db) => {
 	console.log('successful connection to database...');
 }).catch((err) => console.log(err));
 
@@ -37,13 +32,13 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-//misc middleware setup
+//misc. middleware setup
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //cookies middleware setup
-// app.use(cookieParser(process.env.SECRET || '12345'));
+//app.use(cookieParser(appConfig.secret));
 app.use(session({
 	name: 'session-id',
 	secret: appConfig.secret,
@@ -52,15 +47,19 @@ app.use(session({
 	store: new FileStore()
 }));
 
+//passport Authentication setup
+app.use(passport.initialize());
+app.use(passport.session()); //IMPORTANT: have to be setup after express-session
+
 //inclusive routers setup
 app.use('/', indexRouter);
 app.use('/users', userRouter);
 
 //user authentication middleware setup
 const auth = (req, res, next) => {
-	if(!req.session.user || req.session.user !== 'authenticated') {
+	if (!req.user) {
 		const err = new Error('You are not authenticated!');
-		err.status = req.session.user ? 403 : 401;
+		err.status = 403;
 		return next(err);
 	}
 	next();
