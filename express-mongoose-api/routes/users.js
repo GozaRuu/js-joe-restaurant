@@ -10,6 +10,8 @@ const verifyAdminRights = require('../common/verify-admin-rights').verifyAdminRi
 const router = express.Router();
 router.use(bodyParser.json());
 
+router.options('*', cors.corsWithOptions, (req, res) => {res.sendStatus(200);});
+
 /* GET users listing. */
 router.get('/', cors.corsWithOptions, authenticate, verifyAdminRights, function(req, res, next) {
 	Users.find({})
