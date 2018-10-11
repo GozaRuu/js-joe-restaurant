@@ -8,7 +8,7 @@ module.exports.verifyUserRightsForCommenting = (req, res, next) => {
 
 		if(req.user._id.toString() == commentAuthorId) return next();
 		else {
-			const err = new Error('Not authorized to perform this operation');
+			const err = new Error('Not authorized to midfy comments not under your name');
 			err.status = 403;
 			next(err);
 		}
