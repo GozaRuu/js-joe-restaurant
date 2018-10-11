@@ -5,5 +5,9 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = {
 	port : process.env.PORT || '3000',
 	secret : process.env.SECRET || '12345',
-	mongoUrl : process.env.MONGO_URL || 'mongodb://localhost:27017/jsjoe'
+	mongoUrl : process.env.MONGO_URL || 'mongodb://localhost:27017/jsjoe',
+	github: {
+		clientId: process.env.GITHUB_CLIENT_ID || '',
+		clientSecret: process.env.CLIENT_SECRET || ''
+	}
 };
