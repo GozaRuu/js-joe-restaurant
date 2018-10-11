@@ -2,7 +2,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 const Users = require('../models/users');
 const appConfig = require('./app.config')
 
@@ -11,14 +10,11 @@ passport.use(new LocalStrategy(Users.authenticate()));
 passport.serializeUser(Users.serializeUser());
 passport.deserializeUser(Users.deserializeUser());
 
-exports.getToken = function(user) { //create webtoken from custom user object
-    return jwt.sign(user, appConfig.secret, {expiresIn: 63600});
-};
-
 const options = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(), //get the jwt from a header pair (Auth Bearer)
 	secretOrKey: appConfig.secret
 };
+
 exports.jwtPassport = passport.use(new JwtStrategy(options, (jwt_payload, done) => {
 	Users.findOne({_id: jwt_payload._id}, (err, user) => {
 		if (err) {
