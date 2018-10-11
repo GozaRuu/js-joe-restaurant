@@ -11,7 +11,7 @@ promotionRouter.use(bodyParser.json());
 promotionRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.corsWithOptions, (req,res,next) => {
-    Promotions.find({})
+    Promotions.find(req.query)
 	.then((promotions) => {
 		res.statusCode = 200;
 		res.json(promotions);
