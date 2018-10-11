@@ -49,10 +49,20 @@ router.post('/signup', cors.corsWithOptions, (req, res, next) => {
 	});
 });
 
-router.post('/login', cors.corsWithOptions, passport.authenticate('local'), (req, res, next) => {
+router.get('/github', passport.authenticate('github'));
+router.get('/github/callback', passport.authenticate('github'), (req, res) => {
+	if (req.user) {
+		const token = getToken({_id: req.user._id}); //create jwt and send it on login
+		res.statusCode = 200;
+		res.setHeader('Content-Type', 'application/json');
+		res.json({success: true, token: token, status: 'Login Successful'})
+	}
+});
+
+router.post('/login', cors.corsWithOptions, passport.authenticate('local', { failureRedirect: 'users/login' }), (req, res, next) => {
 	const token = getToken({_id: req.user._id}); //create jwt and send it on login
 	res.statusCode = 200;
-	res.setHeader('Content-Type', 'text/plain');
+	res.setHeader('Content-Type', 'application/json');
 	res.json({success: true, token: token, status: 'Login Successful'})
 });
 
