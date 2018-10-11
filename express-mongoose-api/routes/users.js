@@ -80,4 +80,18 @@ router.get('/logout', cors.corsWithOptions, (req, res) => {
 	}
 });
 
+router.get('/checkJWT', cors.corsWithOptions, (req, res, next) => {
+	passport.authenticate('jwt', {sessions: false}, (err, user, info) => {
+		if (err) return next(err);
+		if (!user) {
+			res.statusCode = 401;
+			res.setHeader('Content-Type', 'application/json');
+			return res.json({status: 'JWT invalid', success: false, err:info});
+		}
+		res.statusCode = 401;
+		res.setHeader('Content-Type', 'application/json');
+		res.json({status: 'JWT valid', success: false, user});
+	})(req, res, next);
+});
+
 module.exports = router;
