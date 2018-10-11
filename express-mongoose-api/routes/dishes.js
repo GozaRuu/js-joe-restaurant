@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Dishes = require('../models/dishes');
-const commentRouter = require('./comments');
 const cors = require('../config/cors.config');
 const authenticate = require('../config/passport.config').verifyUser;
 const verifyAdminRights = require('../common/verify-admin-rights').verifyAdminRights;
@@ -82,23 +81,5 @@ dishRouter.route('/:dishId')
 	.catch((err) => next(err));
 });
 
-
-//routing comment requests
-dishRouter.use('/:dishId/comments',(req, res, next) => {
-	Dishes.findById(req.params.dishId)
-	.populate('comments.author')
-	.then((dish) => {
-		if (dish === null) {
-			const err = new Error(`Dish ${req.params.dishId} not found`);
-			err.status = 404;
-			throw err;
-		}
-		req.dish = dish;
-		next();
-	})
-	.catch((err) => next(err));
-});
-
-dishRouter.use('/:dishId/comments', commentRouter);
 
 module.exports = dishRouter;

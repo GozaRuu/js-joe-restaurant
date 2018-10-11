@@ -1,11 +1,30 @@
 const express = require('express');
 const passport = require('passport');
-const commentRouter = express.Router();
 const authenticate = require('../config/passport.config').verifyUser;
 const Users = require('../models/users');
 const cors = require('../config/cors.config');
 const verifyAdminRights = require('../common/verify-admin-rights').verifyAdminRights;
 const verifyUserRights = require('../common/verify-user-rights').verifyUserRightsForCommenting;
+
+const commentRouter = express.Router();
+dishRouter.use(bodyParser.json());
+
+//routing comment requests
+commentRouter.use('/',(req, res, next) => {
+	Dishes.findById(req.params.dishId)
+	.populate('comments.author')
+	.then((dish) => {
+		if (dish === null) {
+			const err = new Error(`Dish ${req.params.dishId} not found`);
+			err.status = 404;
+			throw err;
+		}
+		req.dish = dish;
+		next();
+	})
+	.catch((err) => next(err));
+});
+
 
 commentRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
