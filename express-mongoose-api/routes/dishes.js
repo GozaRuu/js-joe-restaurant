@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Dishes = require('../models/dishes');
 const commentRouter = require('./comments');
-const authenticate = require('../config/passport.config').verifyUser;
 const cors = require('../config/cors.config');
+const authenticate = require('../config/passport.config').verifyUser;
 const verifyAdminRights = require('../common/verify-admin-rights').verifyAdminRights;
 
 const dishRouter = express.Router();

@@ -4,7 +4,8 @@ const commentRouter = express.Router();
 const authenticate = require('../config/passport.config').verifyUser;
 const Users = require('../models/users');
 const cors = require('../config/cors.config');
-const verifyUserRights = require('verify-user-rights').verifyUserRights;
+const verifyAdminRights = require('../common/verify-admin-rights').verifyAdminRights;
+const verifyUserRights = require('../common/verify-user-rights').verifyUserRightsForCommenting;
 
 commentRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
@@ -34,7 +35,7 @@ commentRouter.route('/')
 	res.statusCode = 403;
 	res.end(`PUT operation not supported on /dishes/${req.params.dishId}/comments`);
 })
-.delete(cors.corsWithOptions, authenticate, (req, res, next) => {
+.delete(cors.corsWithOptions, authenticate, verifyAdminRights, (req, res, next) => {
 	let comments = req.dish.comments;
 	for (let i = (comments.length -1); i >= 0; i--) {
 		comments.id(comments[i]._id).remove();
@@ -61,17 +62,17 @@ commentRouter.use('/:commentId', (req, res, next) => {
 });
 
 commentRouter.route('/:commentId')
-.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.options(cors.cors, (req, res) => { res.sendStatus(200); })
 .get(cors.cors, (req,res,next) => {
 	res.statusCode = 200;
 	res.setHeader('Content-Type', 'application/json');
 	res.json(req.comment);
 })
-.post(authenticate, (req, res, next) => {
+.post(cors.corsWithOptions, authenticate, (req, res, next) => {
 	res.statusCode = 403;
 	res.end(`POST operation not supported on /dishes/${req.params.dishId}/comments/${req.params.commentId}`);
 })
-.put(cors.corsWithOptions, authenticate, (req, res, next) => {
+.put(cors.corsWithOptions, authenticate, verifyUserRights, (req, res, next) => {
 	req.comment._doc = {...req.comment._doc, ...req.body};
 	req.comment._doc.updatedAt = new Date().toISOString();
 	req.dish.save()
@@ -82,7 +83,7 @@ commentRouter.route('/:commentId')
 	})
 	.catch((err) => next(err));
 })
-.delete(cors.corsWithOptions, authenticate, (req, res, next) => {
+.delete(cors.corsWithOptions, authenticate, verifyUserRights, (req, res, next) => {
 	req.comment.remove();
 	req.dish.save()
 	.then((dish) => {
