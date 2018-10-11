@@ -16,6 +16,7 @@ const passportConfig = require('./config/passport.config');
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/users');
 const dishRouter = require('./routes/dishes');
+const commentRouter = require('./routes/comments');
 const promotionRouter = require('./routes/promotions');
 const leaderRouter = require('./routes/leaders');
 const favoriteRouter = require('./routes/favorites');
@@ -60,6 +61,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //exlusive routers setup
 app.use('/dishes', dishRouter);
+app.use('/comments', commentRouter);
 app.use('/promotions', promotionRouter);
 app.use('/leaders', leaderRouter);
 app.use('/favorites', favoriteRouter);

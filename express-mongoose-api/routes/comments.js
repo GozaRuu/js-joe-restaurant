@@ -1,5 +1,6 @@
 const express = require('express');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const authenticate = require('../config/passport.config').verifyUser;
 const Users = require('../models/users');
 const cors = require('../config/cors.config');
@@ -7,7 +8,7 @@ const verifyAdminRights = require('../common/verify-admin-rights').verifyAdminRi
 const verifyUserRights = require('../common/verify-user-rights').verifyUserRightsForCommenting;
 
 const commentRouter = express.Router();
-dishRouter.use(bodyParser.json());
+commentRouter.use(bodyParser.json());
 
 
 commentRouter.route('/')
@@ -29,7 +30,7 @@ commentRouter.route('/')
 		.then((comment) => {
 			Comments.findById(comments._id)
 			.populate('author')
-			.then((comment) -> {
+			.then((comment) => {
 				res.statusCode = 200;
 				res.setHeader('Content-Type', 'application/json');
 				res.json(comments);
