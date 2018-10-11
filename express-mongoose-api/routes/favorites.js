@@ -82,8 +82,15 @@ favoriteRouter.use('/:dishId', (req, res, next) => {
 favoriteRouter.route('/:dishId')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.corsWithOptions, authenticate, (req,res,next) => {
-	res.statusCode = 403;
-    res.end(`GET operation not supported on /favorites/${req.params.dishId}`);
+	Favorites.findOne({user: req.user._id})
+	.then((favorites) => {
+		res.statusCode = 200;
+		res.setHeader('Content-Type', 'application/json');
+		if(!favorites || favorites.dishes.indexOf(req.params.dishId) === -1)
+			return res.json({exists: false, favorites: null});
+		res.json({exists: false, favorites});
+	})
+	.catch((err) => next(err));
 })
 .post(cors.corsWithOptions, authenticate, (req, res, next) => {
 	const fav_ids = [];
