@@ -4,17 +4,23 @@ const bodyParser = require('body-parser');
 const Users = require('../models/users');
 const getToken = require('../config/passport.config').getToken;
 const cors = require('../config/cors.config');
+const authenticate = require('../config/passport.config').verifyUser;
+const verifyAdminRights = require('../common/verify-admin-rights').verifyAdminRights;
 
 const router = express.Router();
 router.use(bodyParser.json());
 
 /* GET users listing. */
-router.get('/', cors.corsWithOptions, function(req, res, next) {
-	res.send('respond with a resource');
+router.get('/', cors.corsWithOptions, authenticate, verifyAdminRights, function(req, res, next) {
+	Users.find({})
+	.then((users) => {
+		res.statusCode = 200;
+		res.setHeader('Content-Type', 'application/json');
+		res.json(users);
+	});
 });
 
 router.post('/signup', cors.corsWithOptions, (req, res, next) => {
-	console.log(req.body);
 	Users.register(new Users({username: req.body.username}), req.body.password, (err, user) =>{
 		if (err) {
 			console.log('error while user register...');
