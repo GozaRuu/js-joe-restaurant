@@ -7,10 +7,10 @@ const favoriteSchema = new Schema({
 		ref: 'User',
         required: true
     },
-    favorites: {
-		type: [Schema.Types.ObjectId],
+    favs: [{
+		type: Schema.Types.ObjectId,
 		ref: 'Dish'
-    }
+    }]
 },{
     timestamps: true
 });

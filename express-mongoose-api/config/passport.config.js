@@ -12,7 +12,7 @@ passport.serializeUser(Users.serializeUser());
 passport.deserializeUser(Users.deserializeUser());
 
 exports.getToken = function(user) { //create webtoken from custom user object
-    return jwt.sign(user, appConfig.secret, {expiresIn: 3600});
+    return jwt.sign(user, appConfig.secret, {expiresIn: 63600});
 };
 
 const options = {
@@ -20,7 +20,6 @@ const options = {
 	secretOrKey: appConfig.secret
 };
 exports.jwtPassport = passport.use(new JwtStrategy(options, (jwt_payload, done) => {
-	console.log("JWT payload: ", jwt_payload);
 	Users.findOne({_id: jwt_payload._id}, (err, user) => {
 		if (err) {
 			return done(err, false);

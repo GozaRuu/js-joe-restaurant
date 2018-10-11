@@ -18,6 +18,7 @@ const userRouter = require('./routes/users');
 const dishRouter = require('./routes/dishes');
 const promotionRouter = require('./routes/promotions');
 const leaderRouter = require('./routes/leaders');
+const favoriteRouter = require('./routes/favorites');
 const uploadRouter = require('./routes/upload');
 
 //setting up database connection
@@ -61,6 +62,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/dishes', dishRouter);
 app.use('/promotions', promotionRouter);
 app.use('/leaders', leaderRouter);
+app.use('/favorites', favoriteRouter);
 app.use('/imageUpload', uploadRouter);
 
 // default route: catch 404 and forward to error handler..
