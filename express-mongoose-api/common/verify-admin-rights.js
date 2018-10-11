@@ -1,4 +1,4 @@
-module.exports.verifyAdmin = (req, res, next) => {
+module.exports.verifyAdminRights = (req, res, next) => {
 	if(req.user && req.user.admin){
 		return next();
 	}

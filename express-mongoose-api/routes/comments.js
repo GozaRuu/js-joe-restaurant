@@ -4,6 +4,7 @@ const commentRouter = express.Router();
 const authenticate = require('../config/passport.config').verifyUser;
 const Users = require('../models/users');
 const cors = require('../config/cors.config');
+const verifyUserRights = require('verify-user-rights').verifyUserRights;
 
 commentRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
