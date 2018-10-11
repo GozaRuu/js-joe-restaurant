@@ -1,6 +1,7 @@
 const cors = require('cors');
+const appConfig = require('./app.config');
 
-const whitelist = ['http://localhost:3000', 'https://localhost:3443'];
+const whitelist = appConfig.corsWhitelist;
 
 const corsOptionsDelegate = (req, cb) => {
 	let corsOptions = { origin: false };
