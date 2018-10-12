@@ -27,8 +27,11 @@ const uploadRouter = require('./routes/upload');
 mongoose.connect(appConfig.mongoUri, { useNewUrlParser: true, useCreateIndex: true })
 .then((db) => {
 	console.log(`${chalk.green('✓')} MongoDB connection established. Please make sure MongoDB stays running`, );
-}).catch((err) => {
+})
+mongoose.connection.on('error', (err) => {
+	console.error(err);
 	console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
+	process.exit();
 });
 
 //creating express app
