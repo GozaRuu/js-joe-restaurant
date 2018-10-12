@@ -5,9 +5,10 @@ const path = require('path');
 const createError = require('http-errors');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const FileStore = require('session-file-store')(session);
 const chalk = require('chalk');
+const compression = require('compression');
+// const session = require('express-session');
+// const FileStore = require('session-file-store')(session);
 
 //loading config
 const appConfig = require('./config/app.config');
@@ -54,6 +55,7 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(compression());
 
 //passport Authentication setup
 app.use(passport.initialize());
