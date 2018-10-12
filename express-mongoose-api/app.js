@@ -7,6 +7,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const chalk = require('chalk');
 
 //loading config
 const appConfig = require('./config/app.config');
@@ -23,10 +24,12 @@ const favoriteRouter = require('./routes/favorites');
 const uploadRouter = require('./routes/upload');
 
 //setting up database connection
-mongoose.connect(appConfig.mongoUrl, { useNewUrlParser: true })
+mongoose.connect(appConfig.mongoUrl, { useNewUrlParser: true, useCreateIndex: true })
 .then((db) => {
-	console.log('successful connection to database...');
-}).catch((err) => console.log(err));
+	console.log(`${chalk.green('✓')} MongoDB connection established. Please make sure MongoDB stays running`, );
+}).catch((err) => {
+	console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
+});
 
 //creating express app
 const app = express();
@@ -77,7 +80,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
 	// set locals, only providing error in development
 	res.locals.message = err.message;
-	res.locals.error = req.app.get('env') === 'development' ? err : {}; //show error stack in 'dev' but not in 'prod'
+	res.locals.error = req.app.get('env') === 'dev' ? err : {}; //show error stack in 'dev' but not in 'prod'
 
 	// render the error page
 	res.status(err.status || 500); //default error status to 500
