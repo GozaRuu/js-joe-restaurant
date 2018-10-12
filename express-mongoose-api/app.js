@@ -24,7 +24,7 @@ const favoriteRouter = require('./routes/favorites');
 const uploadRouter = require('./routes/upload');
 
 //setting up database connection
-mongoose.connect(appConfig.mongoUrl, { useNewUrlParser: true, useCreateIndex: true })
+mongoose.connect(appConfig.mongoUri, { useNewUrlParser: true, useCreateIndex: true })
 .then((db) => {
 	console.log(`${chalk.green('✓')} MongoDB connection established. Please make sure MongoDB stays running`, );
 }).catch((err) => {

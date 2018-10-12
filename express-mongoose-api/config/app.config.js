@@ -5,8 +5,8 @@ if (process.env.NODE_ENV !== 'prod') {
 module.exports = {
 	port : process.env.PORT || '3000',
 	secret : process.env.SECRET || '12345',
-	mongoUrl : process.env.MONGO_URL || 'mongodb://localhost:27017/jsjoe',
-	env : process.env.MONGO_URL || 'dev',
+	mongoUri : process.env.MONGODB_URI || 'mongodb://localhost:27017/jsjoe',
+	env : process.env.NODE_ENV || 'dev',
 	corsWhitelist : ['http://localhost:3000', 'https://localhost:3443', 'https://localhost:3001'],
 	github: {
 		clientId: process.env.GITHUB_CLIENT_ID || '',
