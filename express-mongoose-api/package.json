@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "API for js-joe-restaurant app",
     "scripts": {
-        "start": "nodemon --ignore sessions/ ./bin/www"
+        "start": "./node_modules/.bin/eslint --fix . && nodemon --ignore sessions/ ./bin/www"
     },
     "repository": {
         "type": "git",
@@ -23,6 +23,7 @@
     "homepage": "https://github.com/GozaRuu/js-joe-restaurant#readme",
     "pre-commit": [],
     "dependencies": {
+        "body-parser": "^1.18.3",
         "chalk": "^2.4.1",
         "compression": "^1.7.3",
         "cookie-parser": "~1.4.3",

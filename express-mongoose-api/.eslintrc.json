@@ -1,3 +1,14 @@
 {
-    "extends": "airbnb-base"
+	"env": {
+		"node": true
+	},
+	"extends": "airbnb-base",
+	"rules": {
+		"no-console": "off",
+		"no-underscore-dangle": "off",
+		"consistent-return": "off",
+		"no-tabs": "off",
+		"prefer-destructuring": "off",
+		"indent": ["error", "tab"]
+	}
 }
