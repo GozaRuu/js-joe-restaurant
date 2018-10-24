@@ -80,18 +80,22 @@ const Login = () => {
       </div>
       <div className="d-flex">
         <a
-          className="btn btn-block btn-sm jsjoe-btn-facebook--air transition-3d-hover mr-1"
+          className="btn btn-block btn-sm jsjoe-btn-twitter--air transition-3d-hover mr-1 mt-0"
+          href="#twitter"
+        >
+          Twitter
+        </a>
+        <a
+          className="btn btn-block btn-sm jsjoe-btn-facebook--air transition-3d-hover mr-1 mt-0"
           href="#facebook"
         >
-          <span className="fab fa-facebook-square mr-1" />
           Facebook
         </a>
         <a
-          className="btn btn-block btn-sm jsjoe-btn-google--air transition-3d-hover ml-1 mt-0"
-          href="#google"
+          className="btn btn-block btn-sm jsjoe-btn-github--air transition-3d-hover mt-0"
+          href="#github"
         >
-          <span className="fab fa-google mr-1" />
-          Google
+          Github
         </a>
       </div>
     </React.Fragment>
@@ -189,18 +193,22 @@ const Register = () => {
       </div>
       <div className="d-flex">
         <a
-          className="btn btn-block btn-sm jsjoe-btn-facebook--air transition-3d-hover mr-1"
+          className="btn btn-block btn-sm jsjoe-btn-twitter--air transition-3d-hover mr-1 mt-0"
+          href="#twitter"
+        >
+          Twitter
+        </a>
+        <a
+          className="btn btn-block btn-sm jsjoe-btn-facebook--air transition-3d-hover mr-1 mt-0"
           href="#facebook"
         >
-          <span className="fab fa-facebook-square mr-1" />
           Facebook
         </a>
         <a
-          className="btn btn-block btn-sm jsjoe-btn-google--air transition-3d-hover ml-1 mt-0"
-          href="#google"
+          className="btn btn-block btn-sm jsjoe-btn-github--air transition-3d-hover mt-0"
+          href="#github"
         >
-          <span className="fab fa-google mr-1" />
-          Google
+          Github
         </a>
       </div>
     </React.Fragment>
@@ -222,7 +230,11 @@ const ForgotPassword = () => {
         <div className="input-group jsjoe-form">
           <div className="input-group-prepend jsjoe-form__prepend">
             <span className="input-group-text jsjoe-form__text">
-              <FontAwesomeIcon icon={faUser} size="lg" />
+              <FontAwesomeIcon
+                icon={faUser}
+                size="lg"
+                className="jsjoe-form__text-inner"
+              />
             </span>
           </div>
           <input
@@ -244,7 +256,7 @@ const ForgotPassword = () => {
       </div>
 
       <div className="text-center mb-4">
-        <span className="small text-muted">Remember your password?</span>
+        <span className="small text-muted">Remember your password? </span>
         <Link class="small" to="/login">
           Login
         </Link>

@@ -79,9 +79,10 @@
 
 a {
   color: #ffc107;
+  transition: all 0.16s ease-in-out;
 }
 a:hover {
-  color: #e0a800;
+  color: #de4437;
 }
 
 /*------------------------------------
@@ -94,7 +95,6 @@ a:hover {
 .btn-warning:hover {
   background-color: #de4437;
   border-color: #de4437;
-  background-color: #de4437;
   box-shadow: 0 4px 17px rgba(222, 68, 55, 0.35);
   color: #fff;
 }
