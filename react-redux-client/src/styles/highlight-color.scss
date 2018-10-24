@@ -3,20 +3,20 @@
 ------------------------------------*/
 ::-moz-selection {
   color: #fff;
-  background-color: #377dff;
+  background-color: $warning;
 }
 
 ::selection {
   color: #fff;
-  background-color: #377dff;
+  background-color: $warning;
 }
 
 .bg-primary ::-moz-selection {
-  color: #377dff;
+  color: $warning;
   background-color: #fff;
 }
 
 .bg-primary ::selection {
-  color: #377dff;
+  color: $warning;
   background-color: #fff;
 }

@@ -68,7 +68,7 @@ const Login = () => {
       </div>
 
       <div className="text-center mb-4">
-        <span className="small text-muted">Do not have an account?</span>
+        <span className="small text-muted">Do not have an account? </span>
         <Link className="small" to="/register">
           Signup
         </Link>
@@ -176,7 +176,7 @@ const Register = () => {
       </div>
 
       <div className="text-center mb-4">
-        <span className="small text-muted">Already have an account?</span>
+        <span className="small text-muted">Already have an account? </span>
         <Link className="small" to="/login">
           Login
         </Link>

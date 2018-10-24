@@ -103,7 +103,7 @@ class Header extends Component {
               </Collapse>
             </Navbar>
             <Hero />
-            <figure className="w-100 w-md-75 w-lg-40 position-absolute-top-left-0 mx-auto">
+            <figure className="w-40 position-absolute-top-left-0 mx-auto">
               <ReactSVG src="./assets/svg/HeroTopLeft.svg" />
             </figure>
             <figure className="position-absolute-bottom-0">
