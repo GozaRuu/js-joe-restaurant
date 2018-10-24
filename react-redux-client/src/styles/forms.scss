@@ -1,0 +1,389 @@
+/*------------------------------------
+  Form
+------------------------------------*/
+.jsjoe-form {
+  border-radius: 0.25rem;
+}
+
+.jsjoe-form__input {
+  z-index: 2;
+}
+
+.jsjoe-form__append,
+.jsjoe-form__prepend,
+.jsjoe-form__prepend > .btn,
+.jsjoe-form__append > .btn,
+.jsjoe-form__text {
+  background-clip: padding-box;
+  transition: all 0.2s ease-in-out;
+}
+
+.jsjoe-form__prepend > .jsjoe-btn-white {
+  border-right: none;
+}
+
+.jsjoe-form__append .btn {
+  margin-left: 1px;
+}
+
+.jsjoe-form__append > .jsjoe-btn-white {
+  border-left: none;
+  border-color: transparent;
+}
+
+.jsjoe-form__text {
+  position: relative;
+}
+
+.jsjoe-form__text-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.jsjoe-form .jsjoe-btn-white:hover,
+.jsjoe-form .jsjoe-btn-white:focus,
+.jsjoe-form .jsjoe-btn-white:active {
+  box-shadow: none;
+}
+
+.jsjoe-form--no-brd .jsjoe-form__input,
+.jsjoe-form--no-brd .jsjoe-form__text {
+  border-color: transparent;
+}
+
+.jsjoe-form--white-brd .jsjoe-form__input,
+.jsjoe-form--white-brd .jsjoe-form__text {
+  border-color: #fff;
+}
+
+.jsjoe-form--no-addon-brd .jsjoe-form__input:not(:first-child) {
+  border-left: none;
+}
+
+.jsjoe-form--no-addon-brd .jsjoe-form__input:not(:last-child) {
+  border-right: none;
+}
+
+/* Position */
+.jsjoe-form--position {
+  position: relative;
+}
+
+.jsjoe-form--position .jsjoe-form__input:not(:first-child) {
+  border-radius: 0.25rem;
+}
+
+.jsjoe-form--position .jsjoe-form__text {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 4;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border: none;
+}
+
+.jsjoe-form--pill {
+  border-radius: 6.1875rem;
+}
+
+.jsjoe-form--pill.jsjoe-form--no-brd {
+  box-shadow: 0 0 25px rgba(119, 131, 143, 0.1);
+}
+
+.jsjoe-form--pill > .jsjoe-form__input:first-child {
+  border-top-left-radius: 6.1875rem;
+  border-bottom-left-radius: 6.1875rem;
+}
+
+.jsjoe-form--pill > .jsjoe-form__input:last-child {
+  border-top-right-radius: 6.1875rem;
+  border-bottom-right-radius: 6.1875rem;
+}
+
+.jsjoe-form--pill .jsjoe-form__prepend > .jsjoe-form__text,
+.jsjoe-form--pill .jsjoe-form__prepend > .btn {
+  border-top-left-radius: 6.1875rem;
+  border-bottom-left-radius: 6.1875rem;
+}
+
+.jsjoe-form--pill .jsjoe-form__append > .jsjoe-form__text,
+.jsjoe-form--pill .jsjoe-form__append > .btn {
+  border-top-right-radius: 6.1875rem;
+  border-bottom-right-radius: 6.1875rem;
+}
+
+/*------------------------------------
+  Form Sizes
+------------------------------------*/
+.jsjoe-form .jsjoe-form__text {
+  min-width: 3rem;
+  font-size: 0.8125rem;
+}
+
+.jsjoe-form.jsjoe-form--pill > .jsjoe-form__input {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.jsjoe-form.jsjoe-form--pill .jsjoe-form__prepend > .jsjoe-form__text,
+.jsjoe-form.jsjoe-form--pill .jsjoe-form__prepend > .btn {
+  padding-left: 20px;
+}
+
+.jsjoe-form.jsjoe-form--pill .jsjoe-form__append > .jsjoe-form__text,
+.jsjoe-form.jsjoe-form--pill .jsjoe-form__append > .btn {
+  padding-right: 20px;
+}
+
+.jsjoe-form.jsjoe-form--pill .jsjoe-form__text {
+  padding: 1rem 1rem;
+}
+
+.jsjoe-form.jsjoe-form--position > .jsjoe-form__input {
+  padding-left: 3rem;
+}
+
+.jsjoe-form--sm .jsjoe-form__text {
+  min-width: 2.6875rem;
+}
+
+.jsjoe-form--sm.jsjoe-form--pill > .jsjoe-form__input {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+.jsjoe-form--sm.jsjoe-form--pill .jsjoe-form__prepend > .jsjoe-form__text,
+.jsjoe-form--sm.jsjoe-form--pill .jsjoe-form__prepend > .btn {
+  padding-left: 18px;
+}
+
+.jsjoe-form--sm.jsjoe-form--pill .jsjoe-form__append > .jsjoe-form__text,
+.jsjoe-form--sm.jsjoe-form--pill .jsjoe-form__append > .btn {
+  padding-right: 18px;
+}
+
+.jsjoe-form--sm.jsjoe-form--position > .jsjoe-form__input {
+  padding-left: 2.75rem;
+}
+
+.jsjoe-form--sm.jsjoe-form--position .jsjoe-form__text-inner {
+  font-size: 0.875rem;
+}
+
+.jsjoe-form--lg .jsjoe-form__text {
+  font-size: 1.125rem;
+  min-width: 3.875rem;
+}
+
+.jsjoe-form--lg .jsjoe-form__append > .btn,
+.jsjoe-form--lg .jsjoe-form__prepend > .btn {
+  font-size: 1.125rem;
+}
+
+.jsjoe-form--lg.jsjoe-form--pill > .jsjoe-form__input {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.jsjoe-form--lg.jsjoe-form--pill .jsjoe-form__prepend > .jsjoe-form__text,
+.jsjoe-form--lg.jsjoe-form--pill .jsjoe-form__prepend > .btn {
+  padding-left: 26px;
+}
+
+.jsjoe-form--lg.jsjoe-form--pill .jsjoe-form__append > .jsjoe-form__text,
+.jsjoe-form--lg.jsjoe-form--pill .jsjoe-form__append > .btn {
+  padding-right: 26px;
+}
+
+.jsjoe-form--lg.jsjoe-form--pill .jsjoe-form__text {
+  padding: 1.125rem 1.125rem;
+}
+
+.jsjoe-form--lg.jsjoe-form--position > .jsjoe-form__input {
+  padding-left: 4rem;
+}
+
+.jsjoe-form--lg.jsjoe-form--position .jsjoe-form__text-inner {
+  font-size: 1.125rem;
+}
+
+/*------------------------------------
+  Success State
+------------------------------------*/
+.jsjoe-has-success .jsjoe-form.jsjoe-focus-state {
+  box-shadow: 0 0 25px rgba(0, 201, 167, 0.1);
+}
+
+.jsjoe-has-success .jsjoe-form:focus,
+.jsjoe-has-success
+  .jsjoe-form.jsjoe-focus-state
+  .jsjoe-form__append
+  > .jsjoe-btn-white,
+.jsjoe-has-success
+  .jsjoe-form.jsjoe-focus-state
+  .jsjoe-form__prepend
+  > .jsjoe-btn-white,
+.jsjoe-has-success .jsjoe-form.jsjoe-focus-state .jsjoe-form__text,
+.jsjoe-has-success .jsjoe-form.jsjoe-focus-state .jsjoe-form__input,
+.jsjoe-has-success .jsjoe-form.jsjoe-focus-state *:focus {
+  border-color: #00c9a7;
+}
+
+.jsjoe-has-success .jsjoe-form.jsjoe-focus-state .jsjoe-form__text {
+  color: #00c9a7;
+}
+
+/*------------------------------------
+  Error State
+------------------------------------*/
+.jsjoe-has-error .jsjoe-form.jsjoe-focus-state {
+  box-shadow: 0 0 25px rgba(222, 68, 55, 0.1);
+}
+
+.jsjoe-has-error .jsjoe-form:focus,
+.jsjoe-has-error
+  .jsjoe-form.jsjoe-focus-state
+  .jsjoe-form__append
+  > .jsjoe-btn-white,
+.jsjoe-has-error
+  .jsjoe-form.jsjoe-focus-state
+  .jsjoe-form__prepend
+  > .jsjoe-btn-white,
+.jsjoe-has-error .jsjoe-form.jsjoe-focus-state .jsjoe-form__text,
+.jsjoe-has-error .jsjoe-form.jsjoe-focus-state .jsjoe-form__input,
+.jsjoe-has-error .jsjoe-form.jsjoe-focus-state *:focus {
+  border-color: #de4437;
+}
+
+.jsjoe-has-error .jsjoe-form.jsjoe-focus-state .jsjoe-form__text {
+  color: #de4437;
+}
+
+/*------------------------------------
+  Focus States
+------------------------------------*/
+.jsjoe-form {
+  transition: all 0.2s ease-in-out;
+}
+
+.jsjoe-form.jsjoe-focus-state {
+  box-shadow: 0 0 25px rgba(55, 125, 255, 0.1);
+}
+
+.jsjoe-form:focus,
+.jsjoe-form.jsjoe-focus-state .jsjoe-form__append > .jsjoe-btn-white,
+.jsjoe-form.jsjoe-focus-state .jsjoe-form__prepend > .jsjoe-btn-white,
+.jsjoe-form.jsjoe-focus-state .jsjoe-form__text,
+.jsjoe-form.jsjoe-focus-state .jsjoe-form__input,
+.jsjoe-form.jsjoe-focus-state *:focus {
+  border-color: rgba(55, 125, 255, 0.5);
+}
+
+.jsjoe-form.jsjoe-focus-state .jsjoe-form__text {
+  color: #377dff;
+}
+
+.jsjoe-form--white-brd.jsjoe-focus-state .jsjoe-form__input {
+  border-color: #fff;
+}
+
+/*------------------------------------
+  Form Steps
+------------------------------------*/
+.jsjoe-form-steps__icon {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+  transition: 0.3s;
+}
+
+.jsjoe-form-steps .active {
+  color: #377dff;
+}
+
+.jsjoe-form-steps .active .jsjoe-form-steps__icon {
+  color: #fff;
+  background-color: #377dff;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+/*------------------------------------
+  Form Modern
+------------------------------------*/
+.jsjoe-form--modern::before {
+  right: 0;
+}
+
+.jsjoe-form--modern .jsjoe-form__input,
+.jsjoe-form--modern .jsjoe-form__text {
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-radius: 0;
+}
+
+.jsjoe-form--modern > .jsjoe-form__input {
+  padding-left: 0;
+}
+
+.jsjoe-form--modern > .jsjoe-form__input:focus {
+  background-color: transparent;
+}
+
+.jsjoe-form--modern .jsjoe-form__text,
+.jsjoe-form--modern.jsjoe-form--sm .jsjoe-form__text,
+.jsjoe-form--modern.jsjoe-form--lg .jsjoe-form__text {
+  border-radius: 0;
+}
+
+/* Focus State */
+.jsjoe-form--modern.jsjoe-focus-state {
+  box-shadow: 0 0 0 rgba(119, 131, 143, 0);
+}
+
+.jsjoe-form--modern:focus,
+.jsjoe-form--modern.jsjoe-focus-state .jsjoe-form__append > .btn,
+.jsjoe-form--modern.jsjoe-focus-state .jsjoe-form__prepend > .btn,
+.jsjoe-form--modern.jsjoe-focus-state .jsjoe-form__text,
+.jsjoe-form--modern.jsjoe-focus-state .jsjoe-form__input,
+.jsjoe-form--modern.jsjoe-focus-state *:focus {
+  box-shadow: 0 0 0 rgba(119, 131, 143, 0);
+}
+
+/* States */
+.jsjoe-has-error .jsjoe-form--modern.jsjoe-focus-state,
+.jsjoe-has-success .jsjoe-form--modern.jsjoe-focus-state {
+  box-shadow: 0 0 0 rgba(119, 131, 143, 0);
+}
+
+.jsjoe-has-error .jsjoe-form--modern:focus,
+.jsjoe-has-error
+  .jsjoe-form--modern.jsjoe-focus-state
+  .jsjoe-form__append
+  > .btn,
+.jsjoe-has-error
+  .jsjoe-form--modern.jsjoe-focus-state
+  .jsjoe-form__prepend
+  > .btn,
+.jsjoe-has-error .jsjoe-form--modern.jsjoe-focus-state .jsjoe-form__text,
+.jsjoe-has-error .jsjoe-form--modern.jsjoe-focus-state .jsjoe-form__input,
+.jsjoe-has-error .jsjoe-form--modern.jsjoe-focus-state *:focus,
+.jsjoe-has-success .jsjoe-form--modern:focus,
+.jsjoe-has-success
+  .jsjoe-form--modern.jsjoe-focus-state
+  .jsjoe-form__append
+  > .btn,
+.jsjoe-has-success
+  .jsjoe-form--modern.jsjoe-focus-state
+  .jsjoe-form__prepend
+  > .btn,
+.jsjoe-has-success .jsjoe-form--modern.jsjoe-focus-state .jsjoe-form__text,
+.jsjoe-has-success .jsjoe-form--modern.jsjoe-focus-state .jsjoe-form__input,
+.jsjoe-has-success .jsjoe-form--modern.jsjoe-focus-state *:focus {
+  box-shadow: 0 0 0 rgba(119, 131, 143, 0);
+}

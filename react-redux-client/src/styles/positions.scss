@@ -1,0 +1,107 @@
+/*------------------------------------
+  Position
+------------------------------------*/
+.position-absolute-top-0 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.position-absolute-top-right-0 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.position-absolute-top-left-0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.position-absolute-top-bottom-0 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.position-absolute-bottom-0 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.position-absolute-bottom-right-0 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.position-absolute-bottom-left-0 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.bottom-50 {
+  bottom: 3.125rem;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.left-15x {
+  left: 15%;
+}
+
+.left-50x {
+  left: 50%;
+}
+
+@media (min-width: 768px) {
+  .position-absolute-top-left-0--md {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .position-absolute-top-right-0--md {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .position-absolute-bottom-right-0--md {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .position-absolute-top-left-0--lg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .position-absolute-bottom-0--lg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .position-absolute-top-right-0--lg {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

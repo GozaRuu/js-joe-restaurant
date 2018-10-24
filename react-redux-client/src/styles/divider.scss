@@ -1,0 +1,133 @@
+/*------------------------------------
+  Divider
+------------------------------------*/
+.jsjoe-divider {
+  position: relative;
+  display: inline-block;
+}
+
+.jsjoe-divider::before,
+.jsjoe-divider::after {
+  position: absolute;
+  top: 50%;
+  content: "";
+}
+
+.jsjoe-divider::before {
+  right: 100%;
+  background-image: linear-gradient(45deg, transparent 0%, #bfc3ca 100%);
+  background-repeat: repeat-x;
+}
+
+.jsjoe-divider::after {
+  left: 100%;
+  background-image: linear-gradient(45deg, #bfc3ca 0%, transparent 100%);
+  background-repeat: repeat-x;
+}
+
+/*------------------------------------
+  Divider Sizes
+------------------------------------*/
+/* Extra Small */
+.jsjoe-divider--xs {
+  font-size: 0.75rem;
+}
+
+.jsjoe-divider--xs::before,
+.jsjoe-divider--xs::after {
+  width: 2rem;
+  height: 0.0625rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.jsjoe-divider--xs::before {
+  margin-right: 0.625rem;
+}
+
+.jsjoe-divider--xs::after {
+  margin-left: 0.625rem;
+}
+
+.jsjoe-divider--xs::before,
+.jsjoe-divider--xs::after {
+  width: 2rem;
+}
+
+/*------------------------------------
+  Divider Styles
+------------------------------------*/
+/* Text */
+.jsjoe-divider--text {
+  color: #8c98a4;
+}
+
+/*------------------------------------
+  Vertical Divider
+------------------------------------*/
+.jsjoe-ver-divider {
+  position: relative;
+}
+
+.jsjoe-ver-divider::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border-right: 1px solid #e7eaf3;
+  content: "";
+}
+
+/* Breakpoint */
+@media (max-width: 575px) {
+  .jsjoe-ver-divider--none-sm::after {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .jsjoe-ver-divider--none-md::after {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .jsjoe-ver-divider--none-lg::after {
+    display: none;
+  }
+}
+
+/*------------------------------------
+  Divider Sizes
+------------------------------------*/
+/* Extra Small */
+.jsjoe-ver-divider--xs::after {
+  top: 50%;
+  height: 1rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Small */
+.jsjoe-ver-divider--sm::after {
+  top: 50%;
+  height: 2rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Large */
+.jsjoe-ver-divider--lg::after {
+  top: 50%;
+  height: 3rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Extra Large */
+.jsjoe-ver-divider--xl::after {
+  top: 50%;
+  height: 4rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

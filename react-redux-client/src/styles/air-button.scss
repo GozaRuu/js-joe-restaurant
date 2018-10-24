@@ -1,0 +1,375 @@
+/*------------------------------------
+  Air Button Styles
+------------------------------------*/
+/* primary air */
+.jsjoe-btn-primary--air {
+  color: #377dff;
+  background: rgba(55, 125, 255, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-primary--air:hover,
+.jsjoe-btn-primary--air:focus,
+.jsjoe-btn-primary--air:active,
+.jsjoe-btn-primary--air.active {
+  color: #fff;
+  background: #377dff;
+  box-shadow: 0 4px 17px rgba(55, 125, 255, 0.35);
+}
+
+/* secondary air */
+.jsjoe-btn-secondary--air {
+  color: #77838f;
+  background: rgba(119, 131, 143, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-secondary--air:hover,
+.jsjoe-btn-secondary--air:focus,
+.jsjoe-btn-secondary--air:active,
+.jsjoe-btn-secondary--air.active {
+  color: #fff;
+  background: #77838f;
+  box-shadow: 0 4px 17px rgba(119, 131, 143, 0.35);
+}
+
+/* success air */
+.jsjoe-btn-success--air {
+  color: #00c9a7;
+  background: rgba(0, 201, 167, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-success--air:hover,
+.jsjoe-btn-success--air:focus,
+.jsjoe-btn-success--air:active,
+.jsjoe-btn-success--air.active {
+  color: #fff;
+  background: #00c9a7;
+  box-shadow: 0 4px 17px rgba(0, 201, 167, 0.35);
+}
+
+/* info air */
+.jsjoe-btn-info--air {
+  color: #00dffc;
+  background: rgba(0, 223, 252, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-info--air:hover,
+.jsjoe-btn-info--air:focus,
+.jsjoe-btn-info--air:active,
+.jsjoe-btn-info--air.active {
+  color: #1e2022;
+  background: #00dffc;
+  box-shadow: 0 4px 17px rgba(0, 223, 252, 0.35);
+}
+
+/* warning air */
+.jsjoe-btn-warning--air {
+  color: #ffc107;
+  background: rgba(255, 193, 7, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-warning--air:hover,
+.jsjoe-btn-warning--air:focus,
+.jsjoe-btn-warning--air:active,
+.jsjoe-btn-warning--air.active {
+  color: #1e2022;
+  background: #ffc107;
+  box-shadow: 0 4px 17px rgba(255, 193, 7, 0.35);
+}
+
+/* danger air */
+.jsjoe-btn-danger--air {
+  color: #de4437;
+  background: rgba(222, 68, 55, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-danger--air:hover,
+.jsjoe-btn-danger--air:focus,
+.jsjoe-btn-danger--air:active,
+.jsjoe-btn-danger--air.active {
+  color: #fff;
+  background: #de4437;
+  box-shadow: 0 4px 17px rgba(222, 68, 55, 0.35);
+}
+
+/* light air */
+.jsjoe-btn-light--air {
+  color: #f6f9fc;
+  background: rgba(246, 249, 252, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-light--air:hover,
+.jsjoe-btn-light--air:focus,
+.jsjoe-btn-light--air:active,
+.jsjoe-btn-light--air.active {
+  color: #1e2022;
+  background: #f6f9fc;
+  box-shadow: 0 4px 17px rgba(246, 249, 252, 0.35);
+}
+
+/* dark air */
+.jsjoe-btn-dark--air {
+  color: #1e2022;
+  background: rgba(30, 32, 34, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-dark--air:hover,
+.jsjoe-btn-dark--air:focus,
+.jsjoe-btn-dark--air:active,
+.jsjoe-btn-dark--air.active {
+  color: #fff;
+  background: #1e2022;
+  box-shadow: 0 4px 17px rgba(30, 32, 34, 0.35);
+}
+
+/* white air */
+.jsjoe-btn-white--air {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-white--air:hover,
+.jsjoe-btn-white--air:focus,
+.jsjoe-btn-white--air:active,
+.jsjoe-btn-white--air.active {
+  color: #1e2022;
+  background: #fff;
+  box-shadow: 0 4px 17px rgba(255, 255, 255, 0.35);
+}
+
+/* facebook air */
+.jsjoe-btn-facebook--air {
+  color: #3b5998;
+  background: rgba(59, 89, 152, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-facebook--air:hover,
+.jsjoe-btn-facebook--air:focus,
+.jsjoe-btn-facebook--air:active,
+.jsjoe-btn-facebook--air.active {
+  color: #fff;
+  background: #3b5998;
+  box-shadow: 0 4px 17px rgba(59, 89, 152, 0.35);
+}
+
+/* google air */
+.jsjoe-btn-google--air {
+  color: #d14130;
+  background: rgba(209, 65, 48, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-google--air:hover,
+.jsjoe-btn-google--air:focus,
+.jsjoe-btn-google--air:active,
+.jsjoe-btn-google--air.active {
+  color: #fff;
+  background: #d14130;
+  box-shadow: 0 4px 17px rgba(209, 65, 48, 0.35);
+}
+
+/* twitter air */
+.jsjoe-btn-twitter--air {
+  color: #1da1f2;
+  background: rgba(29, 161, 242, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-twitter--air:hover,
+.jsjoe-btn-twitter--air:focus,
+.jsjoe-btn-twitter--air:active,
+.jsjoe-btn-twitter--air.active {
+  color: #fff;
+  background: #1da1f2;
+  box-shadow: 0 4px 17px rgba(29, 161, 242, 0.35);
+}
+
+/* instagram air */
+.jsjoe-btn-instagram--air {
+  color: #3f729b;
+  background: rgba(63, 114, 155, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-instagram--air:hover,
+.jsjoe-btn-instagram--air:focus,
+.jsjoe-btn-instagram--air:active,
+.jsjoe-btn-instagram--air.active {
+  color: #fff;
+  background: #3f729b;
+  box-shadow: 0 4px 17px rgba(63, 114, 155, 0.35);
+}
+
+/* github air */
+.jsjoe-btn-github--air {
+  color: #24292e;
+  background: rgba(36, 41, 46, 0.1);
+  border-color: transparent;
+}
+
+.jsjoe-btn-github--air:hover,
+.jsjoe-btn-github--air:focus,
+.jsjoe-btn-github--air:active,
+.jsjoe-btn-github--air.active {
+  color: #fff;
+  background: #24292e;
+  box-shadow: 0 4px 17px rgba(36, 41, 46, 0.35);
+}
+
+/*------------------------------------
+  Button Sizes
+------------------------------------*/
+/* Wide */
+.jsjoe-btn-wide {
+  min-width: 9.6875rem;
+}
+
+.jsjoe-btn-wide--sm {
+  min-width: 8.4375rem;
+}
+
+/* Extra Small */
+.btn-xs {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  padding: 0.4375rem 0.9375rem;
+}
+
+.btn-sm {
+  font-size: 0.875rem;
+}
+
+/* Icons */
+.jsjoe-btn--icon {
+  position: relative;
+  line-height: 0;
+  font-size: 1rem;
+  width: 3.125rem;
+  height: 3.125rem;
+  padding: 0;
+}
+
+.jsjoe-btn--icon__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.jsjoe-btn--icon.btn-xs {
+  font-size: 0.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+}
+
+/*------------------------------------
+  Custom Buttons
+------------------------------------*/
+/* primary button :hover, :focus, :active effects */
+.jsjoe-btn-primary:hover,
+.jsjoe-btn-primary:focus,
+.jsjoe-btn-primary:active {
+  box-shadow: 0 4px 17px rgba(55, 125, 255, 0.35);
+}
+
+/* secondary button :hover, :focus, :active effects */
+.jsjoe-btn-secondary:hover,
+.jsjoe-btn-secondary:focus,
+.jsjoe-btn-secondary:active {
+  box-shadow: 0 4px 17px rgba(119, 131, 143, 0.35);
+}
+
+/* success button :hover, :focus, :active effects */
+.jsjoe-btn-success:hover,
+.jsjoe-btn-success:focus,
+.jsjoe-btn-success:active {
+  box-shadow: 0 4px 17px rgba(0, 201, 167, 0.35);
+}
+
+/* info button :hover, :focus, :active effects */
+.jsjoe-btn-info:hover,
+.jsjoe-btn-info:focus,
+.jsjoe-btn-info:active {
+  box-shadow: 0 4px 17px rgba(0, 223, 252, 0.35);
+}
+
+/* warning button :hover, :focus, :active effects */
+.jsjoe-btn-warning:hover,
+.jsjoe-btn-warning:focus,
+.jsjoe-btn-warning:active {
+  box-shadow: 0 4px 17px rgba(255, 193, 7, 0.35);
+}
+
+/* danger button :hover, :focus, :active effects */
+.jsjoe-btn-danger:hover,
+.jsjoe-btn-danger:focus,
+.jsjoe-btn-danger:active {
+  box-shadow: 0 4px 17px rgba(222, 68, 55, 0.35);
+}
+
+/* light button :hover, :focus, :active effects */
+.jsjoe-btn-light:hover,
+.jsjoe-btn-light:focus,
+.jsjoe-btn-light:active {
+  box-shadow: 0 4px 17px rgba(246, 249, 252, 0.35);
+}
+
+/* dark button :hover, :focus, :active effects */
+.jsjoe-btn-dark:hover,
+.jsjoe-btn-dark:focus,
+.jsjoe-btn-dark:active {
+  box-shadow: 0 4px 17px rgba(30, 32, 34, 0.35);
+}
+
+/* white button :hover, :focus, :active effects */
+.jsjoe-btn-white:hover,
+.jsjoe-btn-white:focus,
+.jsjoe-btn-white:active {
+  box-shadow: 0 4px 17px rgba(255, 255, 255, 0.35);
+}
+
+/* facebook button :hover, :focus, :active effects */
+.jsjoe-btn-facebook:hover,
+.jsjoe-btn-facebook:focus,
+.jsjoe-btn-facebook:active {
+  box-shadow: 0 4px 17px rgba(59, 89, 152, 0.35);
+}
+
+/* google button :hover, :focus, :active effects */
+.jsjoe-btn-google:hover,
+.jsjoe-btn-google:focus,
+.jsjoe-btn-google:active {
+  box-shadow: 0 4px 17px rgba(209, 65, 48, 0.35);
+}
+
+/* twitter button :hover, :focus, :active effects */
+.jsjoe-btn-twitter:hover,
+.jsjoe-btn-twitter:focus,
+.jsjoe-btn-twitter:active {
+  box-shadow: 0 4px 17px rgba(29, 161, 242, 0.35);
+}
+
+/* instagram button :hover, :focus, :active effects */
+.jsjoe-btn-instagram:hover,
+.jsjoe-btn-instagram:focus,
+.jsjoe-btn-instagram:active {
+  box-shadow: 0 4px 17px rgba(63, 114, 155, 0.35);
+}
+
+/* github button :hover, :focus, :active effects */
+.jsjoe-btn-github:hover,
+.jsjoe-btn-github:focus,
+.jsjoe-btn-github:active {
+  box-shadow: 0 4px 17px rgba(36, 41, 46, 0.35);
+}

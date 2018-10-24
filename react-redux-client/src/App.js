@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ConfigureStore } from "./redux/configureStore";
 import Main from "./components/MainComponent";
-import "./App.scss";
 
 const store = ConfigureStore();
 
@@ -12,9 +11,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <div>
-            <Main />
-          </div>
+          <Main />
         </BrowserRouter>
       </Provider>
     );

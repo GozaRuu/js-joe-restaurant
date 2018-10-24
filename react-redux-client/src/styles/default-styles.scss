@@ -1,0 +1,133 @@
+/*------------------------------------
+  Default Styles
+------------------------------------*/
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+  color: #1e2022;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga", "kern";
+  text-rendering: optimizelegibility;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+}
+
+p {
+  color: #77838f;
+  line-height: 1.7;
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+  font-weight: 500;
+}
+
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a,
+.h1 > a,
+.h2 > a,
+.h3 > a,
+.h4 > a,
+.h5 > a,
+.h6 > a {
+  color: #1e2022;
+}
+
+h1 > a:hover,
+h2 > a:hover,
+h3 > a:hover,
+h4 > a:hover,
+h5 > a:hover,
+h6 > a:hover,
+.h1 > a:hover,
+.h2 > a:hover,
+.h3 > a:hover,
+.h4 > a:hover,
+.h5 > a:hover,
+.h6 > a:hover {
+  color: #1164ff;
+}
+
+h1.text-white > a,
+h2.text-white > a,
+h3.text-white > a,
+h4.text-white > a,
+h5.text-white > a,
+h6.text-white > a,
+.h1.text-white > a,
+.h2.text-white > a,
+.h3.text-white > a,
+.h4.text-white > a,
+.h5.text-white > a,
+.h6.text-white > a {
+  color: #fff;
+}
+
+figure {
+  margin-bottom: 0;
+}
+
+/*------------------------------------
+  Accessibility
+------------------------------------*/
+:focus,
+a:focus,
+button:focus {
+  outline: 0;
+}
+
+button {
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.btn:focus,
+.btn.focus,
+.btn:not(:disabled):not(.disabled):active:focus,
+.btn:not(:disabled):not(.disabled).active:focus,
+.btn:not([disabled]):not(.disabled):active,
+.btn:not([disabled]):not(.disabled).active {
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.btn:not(:disabled):not(.disabled):active:focus,
+.btn:not(:disabled):not(.disabled).active:focus,
+.show > .btn.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.page-link:focus {
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before,
+.custom-control-input:focus ~ .custom-control-label::before,
+.custom-control-input:active ~ .custom-control-label::before {
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.bootstrap-select .dropdown-toggle:focus {
+  outline: 0 !important;
+}

@@ -106,13 +106,29 @@ class Main extends Component {
       <React.Fragment>
         <Header />
         {/* <Switch>
-                        <Route path="/home" component={HomeComponentCreator} />
-                        <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
-                        <Route path="/menu/:dishId" component={SelectedDishCreator} />
-                        <Route path="/aboutus" component={() => <About leaders={this.props.leaders}/>} />
-                        <Route path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} feedbackFormResponse={this.props.feedbackFormResponse}/>} />
-                        <Redirect to="/home" />
-                    </Switch> */}
+          <Route path="/home" component={HomeComponentCreator} />
+          <Route
+            exact
+            path="/menu"
+            component={() => <Menu dishes={this.props.dishes} />}
+          />
+          <Route path="/menu/:dishId" component={SelectedDishCreator} />
+          <Route
+            path="/aboutus"
+            component={() => <About leaders={this.props.leaders} />}
+          />
+          <Route
+            path="/contactus"
+            component={() => (
+              <Contact
+                resetFeedbackForm={this.props.resetFeedbackForm}
+                postFeedback={this.props.postFeedback}
+                feedbackFormResponse={this.props.feedbackFormResponse}
+              />
+            )}
+          />
+          <Redirect from="/" to="/home" />
+        </Switch> */}
         {/* <Footer /> */}
       </React.Fragment>
     );

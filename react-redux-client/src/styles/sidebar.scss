@@ -1,0 +1,215 @@
+/*------------------------------------
+  Header Sidebar
+------------------------------------*/
+.jsjoe-header-sidebar__footer-offset {
+  height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 10.625rem;
+}
+
+.jsjoe-header-sidebar__content {
+  padding: 3rem;
+}
+
+.jsjoe-header-sidebar__navbar-brand {
+  display: block;
+  width: 6.25rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5rem;
+}
+
+.jsjoe-header-sidebar__footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 3rem;
+}
+
+.jsjoe-header-sidebar__footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+.jsjoe-header-sidebar__footer-link:hover {
+  color: #fff;
+}
+
+/*------------------------------------
+  Sidebar Navigation
+------------------------------------*/
+
+.jsjoe-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1030;
+  width: 23.4375rem;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -13px 0 20px rgba(119, 131, 143, 0.08);
+}
+
+.jsjoe-sidebar__body,
+.jsjoe-sidebar__content {
+  height: 100%;
+}
+
+// .jsjoe-sidebar--left {
+//   right: auto;
+//   left: 0;
+//   box-shadow: 13px 0 20px rgba(119, 131, 143, 0.08);
+// }
+
+.jsjoe-sidebar__container {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+}
+
+.jsjoe-sidebar__footer {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/*------------------------------------
+  Account Sidebar
+------------------------------------*/
+.jsjoe-sidebar--account__footer-offset {
+  height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 10.3125rem;
+}
+
+.jsjoe-sidebar__content--account {
+  padding: 1.5rem 3rem;
+}
+
+/* Holder */
+.jsjoe-sidebar--account__holder {
+  background-color: #f6f9fc;
+  padding: 1.5rem 3rem;
+}
+
+.jsjoe-sidebar--account__holder-img {
+  width: 3rem;
+  border-radius: 0.25rem;
+}
+
+.jsjoe-sidebar--account__holder-text {
+  display: block;
+  font-size: 0.75rem;
+  color: #8f95a0;
+}
+
+/* Toggle */
+.jsjoe-sidebar--account__toggle-bg {
+  position: relative;
+  top: 0.0625rem;
+  padding: 0.25rem 0.25rem 0.25rem 0.75rem;
+  background-color: rgba(55, 125, 255, 0.1);
+  border-radius: 6.1875rem;
+}
+
+@media (max-width: 767px) {
+  .jsjoe-sidebar--account__toggle-bg {
+    padding-left: 0.25rem;
+  }
+}
+
+.jsjoe-sidebar--account__toggle-bg:hover .jsjoe-sidebar--account__toggle-text {
+  color: #377dff;
+}
+
+.jsjoe-sidebar--account__toggle-text {
+  color: #1e2022;
+  font-size: 0.75rem;
+  vertical-align: middle;
+  margin-right: 0.3125rem;
+}
+
+@media (max-width: 767px) {
+  .jsjoe-sidebar--account__toggle-text {
+    display: none;
+  }
+}
+
+.jsjoe-sidebar--account__toggle-img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+
+/* List */
+.jsjoe-sidebar--account__list {
+  margin-bottom: 0;
+}
+
+.jsjoe-sidebar--account__list-item {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.jsjoe-sidebar--account__list-link {
+  display: block;
+  font-size: 0.875rem;
+  color: #828286;
+  border-radius: 0.25rem;
+  padding: 0.625rem;
+  transition: 0.2s ease-in-out;
+}
+
+.jsjoe-sidebar--account__list-link.active,
+.jsjoe-sidebar--account__list-link:hover {
+  color: #377dff;
+  background-color: rgba(55, 125, 255, 0.1);
+}
+
+.jsjoe-sidebar--account__list-link.active .jsjoe-sidebar--account__list-icon,
+.jsjoe-sidebar--account__list-link:hover .jsjoe-sidebar--account__list-icon {
+  color: #377dff;
+}
+
+.jsjoe-sidebar--account__list-icon {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  vertical-align: inherit;
+  width: 1.125rem;
+  font-size: 0.8125rem;
+  color: #8f95a0;
+  transition: 0.2s ease-in-out;
+}
+
+.jsjoe-sidebar--account__list-divider {
+  border-top-width: 0.0625rem;
+  border-top-style: solid;
+  border-top-color: #e4ecf7;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer Links */
+.jsjoe-sidebar__footer--account {
+  padding: 0 3rem 1.5rem;
+}
+
+.jsjoe-sidebar__footer--account__text {
+  position: relative;
+  z-index: 1;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.jsjoe-sidebar__footer--account__text:hover {
+  color: #fff;
+}

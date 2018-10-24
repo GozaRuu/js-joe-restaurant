@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 900 919" style="enable-background:new 0 0 900 919;" xml:space="preserve">
+ <!-- <linearGradient id="heroPathID2" gradientUnits="userSpaceOnUse" x1="0" y1="196.5" x2="900" y2="196.5">
+	 <stop class="jsjoe-stop-color-danger" offset="0"/>
+	 <stop class="jsjoe-stop-color-danger" offset="1"/>
+ </linearGradient>
+ <path fill="url(#heroPathID2)" opacity=".075" d="M197,393c0,0,254-343,703-393H0L197,393z"/> -->
+  <linearGradient id="heroPathID1" opacity="0.8" gradientUnits="userSpaceOnUse" x1="0" y1="501" x2="599" y2="501">
+	<stop class="jsjoe-stop-color-dark" offset="7.500810e-08"/>
+	<stop class="jsjoe-stop-color-dark" offset="1"/>
+  </linearGradient>
+  <path fill="url(#heroPathID1)" opacity="0.8" d="M599,83c0,0-552.6,361-597.8,836L0,486.3C0,486.3,232.6,170,599,83z"/>
+  <path class="jsjoe-fill-warning" opacity=".5" d="M1,919c0,0,164.2-790,683-919H229.8C229.8,0,1,257,1,577V919z"/>
+  <linearGradient id="heroPathID3" gradientUnits="userSpaceOnUse" x1="0.5" y1="310.75" x2="562.3972" y2="310.75">
+	<stop class="jsjoe-stop-color-warning" offset="0"/>
+	<stop class="jsjoe-stop-color-warning" offset="1"/>
+  </linearGradient>
+  <path fill="url(#heroPathID3)" opacity="1" d="M0.5,0.5V621c0,0,190.7-441.2,561.9-620.5H0.5z"/>
+</svg>
