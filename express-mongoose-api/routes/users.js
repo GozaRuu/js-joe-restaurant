@@ -30,6 +30,35 @@ router.get(
   }
 );
 
+/* User Login. */
+router.post("/login", cors.corsWithOptions, (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) return next(err);
+
+    if (!user) {
+      res.statusCode = 401;
+      res.setHeader("Content-Type", "application/json");
+      res.json({ success: false, status: "Login Unsuccessful!", err: info });
+    }
+    req.logIn(user, err => {
+      if (err) {
+        res.statusCode = 401;
+        res.setHeader("Content-Type", "application/json");
+        res.json({
+          success: false,
+          status: "Login Unsuccessful!",
+          err: "Could not log in user!"
+        });
+      }
+
+      var token = authenticate.getToken({ _id: req.user._id });
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "application/json");
+      res.json({ success: true, status: "Login Successful!", token: token });
+    });
+  })(req, res, next);
+});
+
 router.post("/signup", cors.corsWithOptions, (req, res) => {
   Users.register(
     new Users({ username: req.body.username }),
@@ -74,18 +103,6 @@ router.get("/github/callback", passport.authenticate("github"), (req, res) => {
     res.json({ success: true, token, status: "Login Successful" });
   }
 });
-
-router.post(
-  "/login",
-  cors.corsWithOptions,
-  passport.authenticate("local", { failureRedirect: "users/login" }),
-  (req, res) => {
-    const token = getToken({ _id: req.user._id }); // create jwt and send it on login
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "application/json");
-    res.json({ success: true, token, status: "Login Successful" });
-  }
-);
 
 router.get("/logout", cors.corsWithOptions, (req, res, next) => {
   if (req.session) {
