@@ -4,7 +4,7 @@ import * as actionTypes from "../actionTypes";
 // based on a token being in local storage.
 //TODO: check if token is expired
 
-export const Auth = (
+export const auth = (
   state = {
     isLoading: false,
     isAuthenticated: localStorage.getItem("token") ? true : false,

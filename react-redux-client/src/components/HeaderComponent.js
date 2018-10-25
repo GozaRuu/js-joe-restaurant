@@ -39,12 +39,19 @@ class Header extends Component {
   }
 
   handleLogin(event) {
-    this.toggleModal();
     alert(
       `UserName: ${this.username.value} Password: ${
         this.password.value
       } Remember: ${this.rememberme.checked}`
     );
+    event.preventDefault();
+  }
+
+  handleRegister(event) {
+    event.preventDefault();
+  }
+
+  handleForgot(event) {
     event.preventDefault();
   }
 
@@ -110,7 +117,11 @@ class Header extends Component {
               <ReactSVG src="./assets/svg/HeroBackground.svg" />
             </figure>
             <HashRouter>
-              <AccountNavigation />
+              <AccountNavigation
+                handleLogin={this.handleLogin}
+                handleRegister={this.handleRegister}
+                handleForgot={this.handleForgot}
+              />
             </HashRouter>
           </div>
         </div>

@@ -8,7 +8,7 @@ import { promotions } from "./reducers/promotions";
 import { leaders } from "./reducers/leaders";
 import { feedbackFormResponse } from "./reducers/feedbackFormResponse";
 import { initialFeedbackForm } from "./forms/initialFeedbackForm";
-import { auth } from "./auth";
+import { auth } from "./reducers/auth";
 
 export const ConfigureStore = () => {
   const store = createStore(

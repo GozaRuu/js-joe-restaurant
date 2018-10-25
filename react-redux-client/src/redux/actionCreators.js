@@ -144,7 +144,9 @@ export const postFeedback = data => dispatch => {
 };
 
 export const loginUser = creds => dispatch => {
+  // dispatch requestLogin to kickoff the call to the API
   dispatch(requestLogin(creds));
+
   return fetch(baseUrl + "users/login", {
     method: "POST",
     headers: {
