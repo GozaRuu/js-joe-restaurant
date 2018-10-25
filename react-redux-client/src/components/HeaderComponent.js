@@ -38,13 +38,11 @@ class Header extends Component {
     });
   }
 
-  handleLogin(event) {
-    alert(
-      `UserName: ${this.username.value} Password: ${
-        this.password.value
-      } Remember: ${this.rememberme.checked}`
-    );
-    event.preventDefault();
+  handleLogin({ email, password }) {
+    this.props.loginUser({
+      username: email,
+      password
+    });
   }
 
   handleRegister(event) {

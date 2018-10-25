@@ -15,6 +15,8 @@ import {
   fetchComments,
   fetchPromos,
   fetchLeaders,
+  loginUser,
+  logoutUser,
   postFeedback
 } from "../redux/actionCreators";
 
@@ -31,24 +33,14 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   addComment: (dish, rating, author, comment) =>
     dispatch(addComment(dish, rating, author, comment)),
-  fetchDishes: () => {
-    dispatch(fetchDishes());
-  },
-  fetchComments: () => {
-    dispatch(fetchComments());
-  },
-  fetchPromos: () => {
-    dispatch(fetchPromos());
-  },
-  fetchLeaders: () => {
-    dispatch(fetchLeaders());
-  },
-  postFeedback: data => {
-    dispatch(postFeedback(data));
-  },
-  resetFeedbackForm: () => {
-    dispatch(actions.reset("feedback"));
-  }
+  fetchDishes: () => dispatch(fetchDishes()),
+  fetchComments: () => dispatch(fetchComments()),
+  fetchPromos: () => dispatch(fetchPromos()),
+  fetchLeaders: () => dispatch(fetchLeaders()),
+  loginUser: creds => dispatch(loginUser(creds)),
+  logoutUser: () => dispatch(logoutUser()),
+  postFeedback: data => dispatch(postFeedback(data)),
+  resetFeedbackForm: () => dispatch(actions.reset("feedback"))
 });
 
 class Main extends Component {
@@ -104,7 +96,10 @@ class Main extends Component {
 
     return (
       <React.Fragment>
-        <Header />
+        <Header
+          loginUser={this.props.loginUser}
+          logoutUser={this.props.logoutUser}
+        />
         {/* <Switch>
           <Route path="/home" component={HomeComponentCreator} />
           <Route

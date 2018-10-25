@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import { Form, Input } from "reactstrap";
+import { Form, Input, Button } from "reactstrap";
 import ReactSVG from "react-svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,6 +17,7 @@ class Login extends Component {
       password: ""
     };
     this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleInput(event) {
     switch (event.target.name) {
@@ -30,6 +31,13 @@ class Login extends Component {
         return;
     }
   }
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.handleLogin({
+      email: this.state.email, //TODO: change username to email
+      password: this.state.password
+    });
+  }
   render() {
     return (
       <React.Fragment>
@@ -37,7 +45,7 @@ class Login extends Component {
           <h2 className="h4 mb-0">Welcome Back!</h2>
           <p>Login to manage your account.</p>
         </header>
-        <Form onSubmit={this.props.handleLogin}>
+        <Form>
           <div className="mb-4">
             <div className="input-group jsjoe-form">
               <div className="input-group-prepend jsjoe-form__prepend">
@@ -80,18 +88,19 @@ class Login extends Component {
               />
             </div>
           </div>
-          <div class="clearfix mb-4">
+          <div className="clearfix mb-4">
             <Link to="/forgot" className="float-right small jsjoe-link-muted">
               Forgot Password?
             </Link>
           </div>
           <div className="mb-2">
-            <button
+            <Button
               type="submit"
               className="btn btn-block btn-warning jsjoe-btn-warning transition-3d-hover"
+              onClick={this.handleSubmit}
             >
               Login
-            </button>
+            </Button>
           </div>
         </Form>
         <div className="text-center mb-4">
@@ -312,7 +321,7 @@ const AccountPage = ({ page, handleSubmit }) => (
       <div className="jsjoe-header-sidebar__footer-offset">
         <div className="jsjoe-header-sidebar__content">
           <div className="d-flex align-items-center pt-4 px-7">
-            <Link type="button" to="/" class="close ml-auto">
+            <Link type="button" to="/" className="close ml-auto">
               <span aria-hidden="true">&times;</span>
             </Link>
           </div>
