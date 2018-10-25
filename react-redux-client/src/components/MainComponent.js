@@ -22,6 +22,7 @@ import {
 
 const mapStateToProps = state => {
   return {
+    auth: state.auth,
     dishes: state.dishes,
     comments: state.comments,
     promotions: state.promotions,
@@ -97,6 +98,7 @@ class Main extends Component {
     return (
       <React.Fragment>
         <Header
+          auth={this.props.auth}
           loginUser={this.props.loginUser}
           logoutUser={this.props.logoutUser}
         />

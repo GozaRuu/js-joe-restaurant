@@ -93,15 +93,32 @@ class Header extends Component {
                 <Nav className="ml-auto" navbar>
                   <NavItem className="nav-link">
                     <HashRouter>
-                      <Link to="/login">
-                        <Button
-                          outline
-                          color="dark"
-                          className="btn btn-sm form-control"
-                        >
-                          <FontAwesomeIcon icon={faUserCircle} /> Login
-                        </Button>
-                      </Link>
+                      {!this.props.auth.isAuthenticated ? (
+                        <Link to="/login">
+                          <Button
+                            outline
+                            color="dark"
+                            className="btn btn-sm form-control"
+                          >
+                            <FontAwesomeIcon icon={faUserCircle} /> Login
+                            {this.props.auth.isFetching ? (
+                              <span className="fa fa-spinner fa-pulse fa-fw" />
+                            ) : null}
+                          </Button>
+                        </Link>
+                      ) : (
+                        <div>
+                          <div className="navbar-text mr-3">
+                            {this.props.auth.user.username}
+                          </div>
+                          <Button outline onClick={this.props.logoutUser}>
+                            <FontAwesomeIcon icon={faUserCircle} /> Logout
+                            {this.props.auth.isFetching ? (
+                              <span className="fa fa-spinner fa-pulse fa-fw" />
+                            ) : null}
+                          </Button>
+                        </div>
+                      )}
                     </HashRouter>
                   </NavItem>
                 </Nav>
