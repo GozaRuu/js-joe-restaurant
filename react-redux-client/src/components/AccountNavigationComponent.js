@@ -99,7 +99,7 @@ class Login extends Component {
               className="btn btn-block btn-warning jsjoe-btn-warning transition-3d-hover"
               onClick={this.handleSubmit}
             >
-              Login
+              <Link to="/">Login</Link>
             </Button>
           </div>
         </Form>

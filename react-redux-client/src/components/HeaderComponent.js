@@ -107,7 +107,7 @@ class Header extends Component {
                           </Button>
                         </Link>
                       ) : (
-                        <div>
+                        <Link to="/">
                           <div className="navbar-text mr-3">
                             {this.props.auth.user.username}
                           </div>
@@ -117,7 +117,7 @@ class Header extends Component {
                               <span className="fa fa-spinner fa-pulse fa-fw" />
                             ) : null}
                           </Button>
-                        </div>
+                        </Link>
                       )}
                     </HashRouter>
                   </NavItem>
