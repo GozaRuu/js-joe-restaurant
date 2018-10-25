@@ -105,7 +105,7 @@ class Main extends Component {
     return (
       <React.Fragment>
         <Header />
-        {/* <Switch>
+        <Switch>
           <Route path="/home" component={HomeComponentCreator} />
           <Route
             exact
@@ -128,8 +128,8 @@ class Main extends Component {
             )}
           />
           <Redirect from="/" to="/home" />
-        </Switch> */}
-        {/* <Footer /> */}
+        </Switch>
+        <Footer />
       </React.Fragment>
     );
   }
