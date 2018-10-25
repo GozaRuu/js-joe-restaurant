@@ -319,40 +319,38 @@ const AccountPage = ({ page, handleSubmit }) => (
           {createPage({ page, handleSubmit })}
         </div>
       </div>
-      <div>
-        <footer className="jsjoe-sidebar__footer jsjoe-sidebar__footer--account">
-          <ul className="list-inline mb-0">
-            <li className="list-inline-item pr-3">
-              <a
-                className="jsjoe-sidebar__footer--account__text"
-                href="privacy.html"
-              >
-                Privacy
-              </a>
-            </li>
-            <li className="list-inline-item pr-3">
-              <a
-                className="jsjoe-sidebar__footer--account__text"
-                href="terms.html"
-              >
-                Terms
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a
-                className="jsjoe-sidebar__footer--account__text"
-                href="help.html"
-              >
-                <FontAwesomeIcon icon={faInfoCircle} />
-              </a>
-            </li>
-          </ul>
+      <footer className="jsjoe-sidebar__footer jsjoe-sidebar__footer--account text-center">
+        <ul className="list-inline mb-0">
+          <li className="list-inline-item pr-3">
+            <a
+              className="jsjoe-sidebar__footer--account__text"
+              href="privacy.html"
+            >
+              Privacy
+            </a>
+          </li>
+          <li className="list-inline-item pr-3">
+            <a
+              className="jsjoe-sidebar__footer--account__text"
+              href="terms.html"
+            >
+              Terms
+            </a>
+          </li>
+          <li className="list-inline-item">
+            <a
+              className="jsjoe-sidebar__footer--account__text"
+              href="help.html"
+            >
+              <FontAwesomeIcon icon={faInfoCircle} />
+            </a>
+          </li>
+        </ul>
 
-          <div className="position-absolute-bottom-0 account-footer-svg">
-            <ReactSVG src="./assets/svg/AccountNavigationFooter.svg" />
-          </div>
-        </footer>
-      </div>
+        <div className="position-absolute-bottom-0 account-footer-svg">
+          <ReactSVG src="./assets/svg/AccountNavigationFooter.svg" />
+        </div>
+      </footer>
     </div>
   </aside>
 );
