@@ -85,10 +85,10 @@ class Main extends Component {
 
     const SelectedDishCreator = ({ match }) => {
       const dish = this.props.dishes.dishes.filter(
-        dish => dish.id === parseInt(match.params.dishId, 10)
+        dish => dish._id === match.params.dishId
       )[0];
       const comments = this.props.comments.comments.filter(
-        comment => comment.dishId === parseInt(match.params.dishId, 10)
+        comment => comment.dishId === match.params.dishId
       );
       return (
         <Dishdetail
