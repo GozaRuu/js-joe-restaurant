@@ -1,0 +1,635 @@
+/*------------------------------------
+  Icon
+------------------------------------*/
+.jsjoe-icon {
+  position: relative;
+  z-index: 1;
+  line-height: 0.7;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  font-size: 0.9375rem;
+  border-radius: 0.25rem;
+  transition: 0.3s ease-in-out;
+}
+
+.jsjoe-icon__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.jsjoe-icon__inner-bottom-minus {
+  top: 90%;
+}
+
+/*------------------------------------
+  Icon Default Styles
+------------------------------------*/
+/* primary */
+.jsjoe-icon-primary {
+  color: #fff;
+  background-color: #377dff;
+  border-color: #377dff;
+}
+
+.jsjoe-icon-primary[href]:hover {
+  color: #fff;
+  background-color: #1164ff;
+  border-color: #045cff;
+}
+
+.jsjoe-icon-primary.disabled,
+.jsjoe-icon-primary:disabled {
+  background-color: #377dff;
+  border-color: #377dff;
+}
+
+/* secondary */
+.jsjoe-icon-secondary {
+  color: #fff;
+  background-color: #77838f;
+  border-color: #77838f;
+}
+
+.jsjoe-icon-secondary[href]:hover {
+  color: #fff;
+  background-color: #65707b;
+  border-color: #5f6a74;
+}
+
+.jsjoe-icon-secondary.disabled,
+.jsjoe-icon-secondary:disabled {
+  background-color: #77838f;
+  border-color: #77838f;
+}
+
+/* success */
+.jsjoe-icon-success {
+  color: #fff;
+  background-color: #00c9a7;
+  border-color: #00c9a7;
+}
+
+.jsjoe-icon-success[href]:hover {
+  color: #fff;
+  background-color: #00a387;
+  border-color: #00967d;
+}
+
+.jsjoe-icon-success.disabled,
+.jsjoe-icon-success:disabled {
+  background-color: #00c9a7;
+  border-color: #00c9a7;
+}
+
+/* info */
+.jsjoe-icon-info {
+  color: #1e2022;
+  background-color: #00dffc;
+  border-color: #00dffc;
+}
+
+.jsjoe-icon-info[href]:hover {
+  color: #fff;
+  background-color: #00bdd6;
+  border-color: #00b2c9;
+}
+
+.jsjoe-icon-info.disabled,
+.jsjoe-icon-info:disabled {
+  background-color: #00dffc;
+  border-color: #00dffc;
+}
+
+/* warning */
+.jsjoe-icon-warning {
+  color: #1e2022;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.jsjoe-icon-warning[href]:hover {
+  color: #1e2022;
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+.jsjoe-icon-warning.disabled,
+.jsjoe-icon-warning:disabled {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+/* danger */
+.jsjoe-icon-danger {
+  color: #fff;
+  background-color: #de4437;
+  border-color: #de4437;
+}
+
+.jsjoe-icon-danger[href]:hover {
+  color: #fff;
+  background-color: #cd2f22;
+  border-color: #c22d20;
+}
+
+.jsjoe-icon-danger.disabled,
+.jsjoe-icon-danger:disabled {
+  background-color: #de4437;
+  border-color: #de4437;
+}
+
+/* light */
+.jsjoe-icon-light {
+  color: #1e2022;
+  background-color: #f6f9fc;
+  border-color: #f6f9fc;
+}
+
+.jsjoe-icon-light[href]:hover {
+  color: #1e2022;
+  background-color: #d9e6f2;
+  border-color: #d0e0ef;
+}
+
+.jsjoe-icon-light.disabled,
+.jsjoe-icon-light:disabled {
+  background-color: #f6f9fc;
+  border-color: #f6f9fc;
+}
+
+/* dark */
+.jsjoe-icon-dark {
+  color: #fff;
+  background-color: #1e2022;
+  border-color: #1e2022;
+}
+
+.jsjoe-icon-dark[href]:hover {
+  color: #fff;
+  background-color: #0c0d0e;
+  border-color: #060707;
+}
+
+.jsjoe-icon-dark.disabled,
+.jsjoe-icon-dark:disabled {
+  background-color: #1e2022;
+  border-color: #1e2022;
+}
+
+/* white */
+.jsjoe-icon-white {
+  color: #1e2022;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.jsjoe-icon-white[href]:hover {
+  color: #1e2022;
+  background-color: #ececec;
+  border-color: #e6e6e6;
+}
+
+.jsjoe-icon-white.disabled,
+.jsjoe-icon-white:disabled {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+/*------------------------------------
+  Icon Air Styles
+------------------------------------*/
+/* primary air */
+.jsjoe-icon-primary--air {
+  color: #377dff;
+  background: rgba(55, 125, 255, 0.1);
+}
+
+.jsjoe-icon-primary--air[href]:hover,
+.jsjoe-icon-primary--air[href]:focus,
+.jsjoe-icon-primary--air[href]:active {
+  color: #fff;
+  background: #377dff;
+}
+
+/* secondary air */
+.jsjoe-icon-secondary--air {
+  color: #77838f;
+  background: rgba(119, 131, 143, 0.1);
+}
+
+.jsjoe-icon-secondary--air[href]:hover,
+.jsjoe-icon-secondary--air[href]:focus,
+.jsjoe-icon-secondary--air[href]:active {
+  color: #fff;
+  background: #77838f;
+}
+
+/* success air */
+.jsjoe-icon-success--air {
+  color: #00c9a7;
+  background: rgba(0, 201, 167, 0.1);
+}
+
+.jsjoe-icon-success--air[href]:hover,
+.jsjoe-icon-success--air[href]:focus,
+.jsjoe-icon-success--air[href]:active {
+  color: #fff;
+  background: #00c9a7;
+}
+
+/* info air */
+.jsjoe-icon-info--air {
+  color: #00dffc;
+  background: rgba(0, 223, 252, 0.1);
+}
+
+.jsjoe-icon-info--air[href]:hover,
+.jsjoe-icon-info--air[href]:focus,
+.jsjoe-icon-info--air[href]:active {
+  color: #1e2022;
+  background: #00dffc;
+}
+
+/* warning air */
+.jsjoe-icon-warning--air {
+  color: #ffc107;
+  background: rgba(255, 193, 7, 0.1);
+}
+
+.jsjoe-icon-warning--air[href]:hover,
+.jsjoe-icon-warning--air[href]:focus,
+.jsjoe-icon-warning--air[href]:active {
+  color: #1e2022;
+  background: #ffc107;
+}
+
+/* danger air */
+.jsjoe-icon-danger--air {
+  color: #de4437;
+  background: rgba(222, 68, 55, 0.1);
+}
+
+.jsjoe-icon-danger--air[href]:hover,
+.jsjoe-icon-danger--air[href]:focus,
+.jsjoe-icon-danger--air[href]:active {
+  color: #fff;
+  background: #de4437;
+}
+
+/* light air */
+.jsjoe-icon-light--air {
+  color: #f6f9fc;
+  background: rgba(246, 249, 252, 0.1);
+}
+
+.jsjoe-icon-light--air[href]:hover,
+.jsjoe-icon-light--air[href]:focus,
+.jsjoe-icon-light--air[href]:active {
+  color: #1e2022;
+  background: #f6f9fc;
+}
+
+/* dark air */
+.jsjoe-icon-dark--air {
+  color: #1e2022;
+  background: rgba(30, 32, 34, 0.1);
+}
+
+.jsjoe-icon-dark--air[href]:hover,
+.jsjoe-icon-dark--air[href]:focus,
+.jsjoe-icon-dark--air[href]:active {
+  color: #fff;
+  background: #1e2022;
+}
+
+/* facebook air */
+.jsjoe-icon-facebook--air {
+  color: #3b5998;
+  background: rgba(59, 89, 152, 0.1);
+}
+
+.jsjoe-icon-facebook--air[href]:hover,
+.jsjoe-icon-facebook--air[href]:focus,
+.jsjoe-icon-facebook--air[href]:active {
+  color: #fff;
+  background: #3b5998;
+}
+
+/* google air */
+.jsjoe-icon-google--air {
+  color: #d14130;
+  background: rgba(209, 65, 48, 0.1);
+}
+
+.jsjoe-icon-google--air[href]:hover,
+.jsjoe-icon-google--air[href]:focus,
+.jsjoe-icon-google--air[href]:active {
+  color: #fff;
+  background: #d14130;
+}
+
+/* twitter air */
+.jsjoe-icon-twitter--air {
+  color: #1da1f2;
+  background: rgba(29, 161, 242, 0.1);
+}
+
+.jsjoe-icon-twitter--air[href]:hover,
+.jsjoe-icon-twitter--air[href]:focus,
+.jsjoe-icon-twitter--air[href]:active {
+  color: #fff;
+  background: #1da1f2;
+}
+
+/* instagram air */
+.jsjoe-icon-instagram--air {
+  color: #3f729b;
+  background: rgba(63, 114, 155, 0.1);
+}
+
+.jsjoe-icon-instagram--air[href]:hover,
+.jsjoe-icon-instagram--air[href]:focus,
+.jsjoe-icon-instagram--air[href]:active {
+  color: #fff;
+  background: #3f729b;
+}
+
+/* github air */
+.jsjoe-icon-github--air {
+  color: #24292e;
+  background: rgba(36, 41, 46, 0.1);
+}
+
+.jsjoe-icon-github--air[href]:hover,
+.jsjoe-icon-github--air[href]:focus,
+.jsjoe-icon-github--air[href]:active {
+  color: #fff;
+  background: #24292e;
+}
+
+/*------------------------------------
+  Icon Border Styles
+------------------------------------*/
+[class*="jsjoe-icon-brd"] {
+  border-width: 0.0625rem;
+  border-style: solid;
+}
+
+/* primary */
+.jsjoe-icon-brd-primary {
+  color: #377dff;
+  background: transparent;
+  border-color: #377dff;
+}
+
+.jsjoe-icon-brd-primary[href]:hover,
+.jsjoe-icon-brd-primary[href]:focus,
+.jsjoe-icon-brd-primary[href]:active {
+  color: #fff;
+  background: #377dff;
+  border-color: #377dff;
+}
+
+/* secondary */
+.jsjoe-icon-brd-secondary {
+  color: #77838f;
+  background: transparent;
+  border-color: #77838f;
+}
+
+.jsjoe-icon-brd-secondary[href]:hover,
+.jsjoe-icon-brd-secondary[href]:focus,
+.jsjoe-icon-brd-secondary[href]:active {
+  color: #fff;
+  background: #77838f;
+  border-color: #77838f;
+}
+
+/* success */
+.jsjoe-icon-brd-success {
+  color: #00c9a7;
+  background: transparent;
+  border-color: #00c9a7;
+}
+
+.jsjoe-icon-brd-success[href]:hover,
+.jsjoe-icon-brd-success[href]:focus,
+.jsjoe-icon-brd-success[href]:active {
+  color: #fff;
+  background: #00c9a7;
+  border-color: #00c9a7;
+}
+
+/* info */
+.jsjoe-icon-brd-info {
+  color: #00dffc;
+  background: transparent;
+  border-color: #00dffc;
+}
+
+.jsjoe-icon-brd-info[href]:hover,
+.jsjoe-icon-brd-info[href]:focus,
+.jsjoe-icon-brd-info[href]:active {
+  color: #1e2022;
+  background: #00dffc;
+  border-color: #00dffc;
+}
+
+/* warning */
+.jsjoe-icon-brd-warning {
+  color: #ffc107;
+  background: transparent;
+  border-color: #ffc107;
+}
+
+.jsjoe-icon-brd-warning[href]:hover,
+.jsjoe-icon-brd-warning[href]:focus,
+.jsjoe-icon-brd-warning[href]:active {
+  color: #1e2022;
+  background: #ffc107;
+  border-color: #ffc107;
+}
+
+/* danger */
+.jsjoe-icon-brd-danger {
+  color: #de4437;
+  background: transparent;
+  border-color: #de4437;
+}
+
+.jsjoe-icon-brd-danger[href]:hover,
+.jsjoe-icon-brd-danger[href]:focus,
+.jsjoe-icon-brd-danger[href]:active {
+  color: #fff;
+  background: #de4437;
+  border-color: #de4437;
+}
+
+/* light */
+.jsjoe-icon-brd-light {
+  color: #f6f9fc;
+  background: transparent;
+  border-color: #f6f9fc;
+}
+
+.jsjoe-icon-brd-light[href]:hover,
+.jsjoe-icon-brd-light[href]:focus,
+.jsjoe-icon-brd-light[href]:active {
+  color: #1e2022;
+  background: #f6f9fc;
+  border-color: #f6f9fc;
+}
+
+/* dark */
+.jsjoe-icon-brd-dark {
+  color: #1e2022;
+  background: transparent;
+  border-color: #1e2022;
+}
+
+.jsjoe-icon-brd-dark[href]:hover,
+.jsjoe-icon-brd-dark[href]:focus,
+.jsjoe-icon-brd-dark[href]:active {
+  color: #fff;
+  background: #1e2022;
+  border-color: #1e2022;
+}
+
+/* white */
+.jsjoe-icon-brd-white {
+  color: #fff;
+  background: transparent;
+  border-color: #fff;
+}
+
+.jsjoe-icon-brd-white[href]:hover,
+.jsjoe-icon-brd-white[href]:focus,
+.jsjoe-icon-brd-white[href]:active {
+  color: #1e2022;
+  background: #fff;
+  border-color: #fff;
+}
+
+/* facebook */
+.jsjoe-icon-brd-facebook {
+  color: #3b5998;
+  background: transparent;
+  border-color: #3b5998;
+}
+
+.jsjoe-icon-brd-facebook[href]:hover,
+.jsjoe-icon-brd-facebook[href]:focus,
+.jsjoe-icon-brd-facebook[href]:active {
+  color: #fff;
+  background: #3b5998;
+  border-color: #3b5998;
+}
+
+/* google */
+.jsjoe-icon-brd-google {
+  color: #d14130;
+  background: transparent;
+  border-color: #d14130;
+}
+
+.jsjoe-icon-brd-google[href]:hover,
+.jsjoe-icon-brd-google[href]:focus,
+.jsjoe-icon-brd-google[href]:active {
+  color: #fff;
+  background: #d14130;
+  border-color: #d14130;
+}
+
+/* twitter */
+.jsjoe-icon-brd-twitter {
+  color: #1da1f2;
+  background: transparent;
+  border-color: #1da1f2;
+}
+
+.jsjoe-icon-brd-twitter[href]:hover,
+.jsjoe-icon-brd-twitter[href]:focus,
+.jsjoe-icon-brd-twitter[href]:active {
+  color: #fff;
+  background: #1da1f2;
+  border-color: #1da1f2;
+}
+
+/* instagram */
+.jsjoe-icon-brd-instagram {
+  color: #3f729b;
+  background: transparent;
+  border-color: #3f729b;
+}
+
+.jsjoe-icon-brd-instagram[href]:hover,
+.jsjoe-icon-brd-instagram[href]:focus,
+.jsjoe-icon-brd-instagram[href]:active {
+  color: #fff;
+  background: #3f729b;
+  border-color: #3f729b;
+}
+
+/* github */
+.jsjoe-icon-brd-github {
+  color: #24292e;
+  background: transparent;
+  border-color: #24292e;
+}
+
+.jsjoe-icon-brd-github[href]:hover,
+.jsjoe-icon-brd-github[href]:focus,
+.jsjoe-icon-brd-github[href]:active {
+  color: #fff;
+  background: #24292e;
+  border-color: #24292e;
+}
+
+/*------------------------------------
+  Icon Sizes
+------------------------------------*/
+/* Extra Small */
+.jsjoe-icon--xs {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.625rem;
+  border-radius: 0.25rem;
+}
+
+/* Small */
+.jsjoe-icon--sm {
+  width: 1.875rem;
+  height: 1.875rem;
+  font-size: 0.8125rem;
+  border-radius: 0.25rem;
+}
+
+/* Medium */
+.jsjoe-icon--md {
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+/* Large */
+.jsjoe-icon--lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.75rem;
+  border-radius: 0.25rem;
+}
+
+/* Extra Large */
+.jsjoe-icon--xl {
+  width: 5rem;
+  height: 5rem;
+  font-size: 3rem;
+  border-radius: 0.25rem;
+}

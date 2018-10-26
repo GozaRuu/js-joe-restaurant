@@ -125,8 +125,8 @@ class Main extends Component {
             )}
           />
           <Redirect from="/" to="/home" />
-        </Switch>
-        <Footer /> */}
+        </Switch> */}
+        <Footer />
       </React.Fragment>
     );
   }
