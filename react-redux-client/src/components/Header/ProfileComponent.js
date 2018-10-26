@@ -24,7 +24,7 @@ class Profile extends Component {
               <img
                 className="jsjoe-sidebar--account__holder-img"
                 src="./assets/images/100x100/img3.jpg"
-                alt="Profile Image"
+                alt="profile"
               />
               <span className="jsjoe-badge jsjoe-badge--xs jsjoe-badge-border-dark jsjoe-badge-pos rounded-circle" />
             </div>
