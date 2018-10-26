@@ -4,14 +4,14 @@ import AccountNavigationPage from "./AccountNavigationPageComponent";
 
 class AccountNavigation extends Component {
   render() {
-    return (
+    return !this.props.auth.auth.isAuthenticated ? (
       <Switch>
         <Route
           path="/login"
           render={() => (
             <AccountNavigationPage
               page="login"
-              handleSubmit={this.props.handleLogin}
+              option={this.props.handleLogin}
             />
           )}
         />
@@ -20,7 +20,7 @@ class AccountNavigation extends Component {
           render={() => (
             <AccountNavigationPage
               page="register"
-              handleSubmit={this.props.handleSubmit}
+              option={this.props.handleSubmit}
             />
           )}
         />
@@ -29,7 +29,22 @@ class AccountNavigation extends Component {
           render={() => (
             <AccountNavigationPage
               page="forgot"
-              handleSubmit={this.props.handleForgot}
+              option={this.props.handleForgot}
+            />
+          )}
+        />
+      </Switch>
+    ) : (
+      <Switch>
+        <Route
+          path="/profile"
+          render={() => (
+            <AccountNavigationPage
+              page="profile"
+              option={{
+                user: this.props.auth.auth.user,
+                logoutUser: this.props.auth.logoutUser
+              }}
             />
           )}
         />

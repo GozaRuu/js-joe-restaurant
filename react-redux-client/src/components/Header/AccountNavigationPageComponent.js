@@ -1,26 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import Profile from "./ProfileComponent";
 import Login from "./LoginComponent";
 import Register from "./RegisterComponent";
 import ForgotPassword from "./ForgotPasswordComponent";
 
-const createPage = ({ page, handleSubmit }) => {
+const createPage = ({ page, option }) => {
   switch (page) {
     case "login":
-      return <Login handleLogin={handleSubmit} />;
+      return <Login handleLogin={option} />;
     case "register":
-      return <Register handleLogin={handleSubmit} />;
+      return <Register handleRegister={option} />;
     case "forgot":
-      return <ForgotPassword handleLogin={handleSubmit} />;
+      return <ForgotPassword handleForgotPassword={option} />;
+    case "profile":
+      return <Profile user={option} />;
     default:
       return <React.Fragment />;
   }
 };
 
-const AccountNavigationPage = ({ page, handleSubmit }) => (
+const AccountNavigationPage = ({ page, option }) => (
   <aside className="jsjoe-sidebar">
     <div className="jsjoe-sidebar__container">
       <div className="jsjoe-header-sidebar__footer-offset">
@@ -30,7 +33,7 @@ const AccountNavigationPage = ({ page, handleSubmit }) => (
               <span aria-hidden="true">&times;</span>
             </Link>
           </div>
-          {createPage({ page, handleSubmit })}
+          {createPage({ page, option })}
         </div>
       </div>
       <footer className="jsjoe-sidebar__footer jsjoe-sidebar__footer--account text-center">
@@ -60,7 +63,6 @@ const AccountNavigationPage = ({ page, handleSubmit }) => (
             </a>
           </li>
         </ul>
-
         <div className="position-absolute-bottom-0 account-footer-svg">
           <ReactSVG src="./assets/svg/AccountNavigationFooter.svg" />
         </div>

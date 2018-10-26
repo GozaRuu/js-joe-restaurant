@@ -14,7 +14,8 @@ import {
   faListAlt,
   faMap,
   faLemon,
-  faUserCircle
+  faUserCircle,
+  faUser
 } from "@fortawesome/free-regular-svg-icons";
 import { Link, HashRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
@@ -107,12 +108,13 @@ class Header extends Component {
                           </Button>
                         </Link>
                       ) : (
-                        <Link to="/">
-                          <div className="navbar-text mr-3">
-                            {this.props.auth.user.username}
-                          </div>
-                          <Button outline onClick={this.props.logoutUser}>
-                            <FontAwesomeIcon icon={faUserCircle} /> Logout
+                        <Link to="/profile">
+                          <Button
+                            outline
+                            color="dark"
+                            className="btn btn-sm form-control"
+                          >
+                            <FontAwesomeIcon icon={faUser} /> Profile
                             {this.props.auth.isFetching ? (
                               <span className="fa fa-spinner fa-pulse fa-fw" />
                             ) : null}
@@ -133,6 +135,10 @@ class Header extends Component {
             </figure>
             <HashRouter>
               <AccountNavigation
+                auth={{
+                  auth: this.props.auth,
+                  logoutUser: this.props.logoutUser
+                }}
                 handleLogin={this.handleLogin}
                 handleRegister={this.handleRegister}
                 handleForgot={this.handleForgot}

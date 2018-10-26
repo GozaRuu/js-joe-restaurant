@@ -47,7 +47,7 @@ class ForgotPassword extends Component {
 
         <div className="text-center mb-4">
           <span className="small text-muted">Remember your password? </span>
-          <Link class="small" to="/login">
+          <Link className="small" to="/login">
             Login
           </Link>
         </div>
