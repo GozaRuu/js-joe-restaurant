@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBicycle,
-  faBone,
+  faTruckMonster,
   faSwimmer,
   faBatteryQuarter,
   faGlasses,
@@ -59,7 +59,7 @@ class Profile extends Component {
                   href="profile.html"
                 >
                   <div className="jsjoe-sidebar--account__list-icon">
-                    <FontAwesomeIcon icon={faBone} />
+                    <FontAwesomeIcon icon={faTruckMonster} />
                   </div>
                   Favorites
                 </a>
