@@ -8,7 +8,7 @@
 }
 
 .jsjoe-header-sidebar__content {
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .jsjoe-header-sidebar__navbar-brand {
@@ -95,7 +95,7 @@
 /* Holder */
 .jsjoe-sidebar--account__holder {
   background-color: #f6f9fc;
-  padding: 1.5rem 3rem;
+  padding: 0.5rem 1rem;
 }
 
 .jsjoe-sidebar--account__holder-img {
@@ -159,7 +159,7 @@
 
 .jsjoe-sidebar--account__list-link {
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.925rem;
   color: #828286;
   border-radius: 0.25rem;
   padding: 0.625rem;
@@ -168,13 +168,14 @@
 
 .jsjoe-sidebar--account__list-link.active,
 .jsjoe-sidebar--account__list-link:hover {
-  color: #377dff;
-  background-color: rgba(55, 125, 255, 0.1);
+  color: #fff;
+  background-color: #ffc107;
+  text-decoration: none;
 }
 
 .jsjoe-sidebar--account__list-link.active .jsjoe-sidebar--account__list-icon,
 .jsjoe-sidebar--account__list-link:hover .jsjoe-sidebar--account__list-icon {
-  color: #377dff;
+  color: #fff;
 }
 
 .jsjoe-sidebar--account__list-icon {
@@ -182,8 +183,8 @@
   vertical-align: middle;
   text-align: center;
   vertical-align: inherit;
-  width: 1.125rem;
-  font-size: 0.8125rem;
+  width: 2.325rem;
+  font-size: 1.125rem;
   color: #8f95a0;
   transition: 0.2s ease-in-out;
 }
@@ -194,8 +195,8 @@
   border-top-color: #e4ecf7;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 /* Footer Links */

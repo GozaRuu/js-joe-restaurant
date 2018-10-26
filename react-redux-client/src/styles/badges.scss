@@ -1,0 +1,229 @@
+/*------------------------------------
+  Badges
+------------------------------------*/
+.jsjoe-badge {
+  z-index: 3;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  line-height: 1.7;
+  font-size: 0.625rem;
+}
+
+.jsjoe-badge-pos {
+  position: absolute;
+}
+
+[class*="jsjoe-badge-border"] {
+  border-style: solid;
+  border-width: 2px;
+  line-height: 1.4;
+}
+
+/* Positions */
+.jsjoe-badge-pos:not([class*="--top-left"]):not([class*="--bottom-left"]):not([class*="--bottom-right"]) {
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+}
+
+.jsjoe-badge-pos--top-left {
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.jsjoe-badge-pos--bottom-left {
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
+}
+
+.jsjoe-badge-pos--bottom-right {
+  bottom: 0;
+  right: 0;
+  -webkit-transform: translate(50%, 50%);
+  transform: translate(50%, 50%);
+}
+
+.jsjoe-badge-pos--bottom-right-0 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.jsjoe-badge-pos--bottom-left-1 {
+  position: absolute;
+  bottom: 0.25rem;
+  left: 0.25rem;
+}
+
+/*------------------------------------
+  Badge Sizes
+------------------------------------*/
+/* Extra Small */
+.jsjoe-badge--xs {
+  width: 0.875rem;
+  height: 0.875rem;
+  line-height: 1.7;
+  font-size: 0.5rem;
+}
+
+.jsjoe-badge--md {
+  width: 1.375rem;
+  height: 1.375rem;
+  line-height: 1.7;
+  font-size: 0.6875rem;
+}
+
+.jsjoe-badge-bigger {
+  padding: 0.5rem 0.625rem;
+}
+
+/* Small */
+.jsjoe-badge-bigger--sm {
+  padding: 0.3125rem 0.5rem;
+}
+
+/*------------------------------------
+  Badge Styles
+------------------------------------*/
+/* primary badge */
+.jsjoe-badge-primary {
+  color: #fff;
+  background: #377dff;
+}
+
+/* secondary badge */
+.jsjoe-badge-secondary {
+  color: #fff;
+  background: #77838f;
+}
+
+/* success badge */
+.jsjoe-badge-success {
+  color: #fff;
+  background: #00c9a7;
+}
+
+/* info badge */
+.jsjoe-badge-info {
+  color: #1e2022;
+  background: #00dffc;
+}
+
+/* warning badge */
+.jsjoe-badge-warning {
+  color: #1e2022;
+  background: #ffc107;
+}
+
+/* danger badge */
+.jsjoe-badge-danger {
+  color: #fff;
+  background: #de4437;
+}
+
+/* light badge */
+.jsjoe-badge-light {
+  color: #1e2022;
+  background: #f6f9fc;
+}
+
+/* dark badge */
+.jsjoe-badge-dark {
+  color: #fff;
+  background: #1e2022;
+}
+
+/* white badge */
+.jsjoe-badge-white {
+  color: #1e2022;
+  background: #fff;
+}
+
+/* primary badge */
+.jsjoe-badge-border-primary {
+  color: #fff;
+  background: #377dff;
+  border-color: #fff;
+}
+
+/* secondary badge */
+.jsjoe-badge-border-secondary {
+  color: #fff;
+  background: #77838f;
+  border-color: #fff;
+}
+
+/* success badge */
+.jsjoe-badge-border-success {
+  color: #fff;
+  background: #00c9a7;
+  border-color: #fff;
+}
+
+/* info badge */
+.jsjoe-badge-border-info {
+  color: #1e2022;
+  background: #00dffc;
+  border-color: #fff;
+}
+
+/* warning badge */
+.jsjoe-badge-border-warning {
+  color: #1e2022;
+  background: #ffc107;
+  border-color: #fff;
+}
+
+/* danger badge */
+.jsjoe-badge-border-danger {
+  color: #fff;
+  background: #de4437;
+  border-color: #fff;
+}
+
+/* light badge */
+.jsjoe-badge-border-light {
+  color: #1e2022;
+  background: #f6f9fc;
+  border-color: #fff;
+}
+
+/* dark badge */
+.jsjoe-badge-border-dark {
+  color: #fff;
+  background: #1e2022;
+  border-color: #fff;
+}
+
+/* white badge */
+.jsjoe-badge-border-white {
+  color: #1e2022;
+  background: #fff;
+  border-color: #1e2022;
+}
+
+.jsjoe-badge-border-white {
+  border-color: #fff;
+}
+
+/*------------------------------------
+  Badge Bootstrap Styles
+------------------------------------*/
+.jsjoe-badge-white {
+  color: #1e2022;
+  background-color: #fff;
+}
+
+.jsjoe-badge-white[href]:hover,
+.jsjoe-badge-white[href]:focus {
+  color: #1e2022;
+  background-color: #e6e6e6;
+}

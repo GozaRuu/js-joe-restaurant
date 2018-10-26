@@ -28,7 +28,7 @@ const AccountNavigationPage = ({ page, option }) => (
     <div className="jsjoe-sidebar__container">
       <div className="jsjoe-header-sidebar__footer-offset">
         <div className="jsjoe-header-sidebar__content">
-          <div className="d-flex align-items-center pt-4 px-7">
+          <div className="d-flex align-items-center px-7">
             <Link type="button" to="/" className="close ml-auto">
               <span aria-hidden="true">&times;</span>
             </Link>
