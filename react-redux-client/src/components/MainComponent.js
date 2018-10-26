@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions } from "react-redux-form";
-import Header from "./HeaderComponent";
+import Header from "./Header/HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import Menu from "./MenuComponent";
