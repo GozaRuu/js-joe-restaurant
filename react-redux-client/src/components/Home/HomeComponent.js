@@ -7,8 +7,8 @@ import {
   CardBody,
   CardSubtitle
 } from "reactstrap";
-import { Loading } from "./LoadingComponent";
-import { baseUrl } from "../shared/baseUrl";
+import { Loading } from "../LoadingComponent";
+import { baseUrl } from "../../shared/baseUrl";
 
 const RenderCard = ({ item, isLoading, errMess }) => {
   if (isLoading) {

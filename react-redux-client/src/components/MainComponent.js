@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { actions } from "react-redux-form";
 import Header from "./Header/HeaderComponent";
 import Footer from "./FooterComponent";
-import Home from "./HomeComponent";
+import Home from "./Home/HomeComponent";
 import Menu from "./MenuComponent";
 import Contact from "./ContactComponent";
 import About from "./AboutComponent";
