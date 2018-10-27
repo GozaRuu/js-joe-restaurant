@@ -132,6 +132,14 @@ button:hover a {
 }
 
 /*------------------------------------
+  Custom Input
+------------------------------------*/
+.jsjoe-form input:focus {
+  box-shadow: 0 0 25px rgba(255, 241, 55, 0.22);
+  border-color: $warning;
+}
+
+/*------------------------------------
   Custom Buttons
 ------------------------------------*/
 .btn-warning {
