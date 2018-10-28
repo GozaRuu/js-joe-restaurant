@@ -113,7 +113,7 @@ const Footer = props => {
         <div className="text-center">
           <div>
             <a
-              class="d-inline-block mb-2 mt-1"
+              className="d-inline-block mb-2 mt-1"
               href="social.html"
               aria-label="Front"
             >
@@ -130,17 +130,17 @@ const Footer = props => {
             {/* <ul className="list-inline text-md-right mb-0"> */}
             <ul className="list-inline mb-0">
               <li className="list-inline-item">
-                <li className="list-inline-item">
-                  <a
-                    className="jsjoe-bg-transparent jsjoe-icon jsjoe-icon-secondary--air rounded"
-                    href="social.html"
-                  >
-                    <FontAwesomeIcon
-                      icon={faTwitter}
-                      className="jsjoe-icon__inner"
-                    />
-                  </a>
-                </li>
+                <a
+                  className="jsjoe-bg-transparent jsjoe-icon jsjoe-icon-secondary--air rounded"
+                  href="social.html"
+                >
+                  <FontAwesomeIcon
+                    icon={faTwitter}
+                    className="jsjoe-icon__inner"
+                  />
+                </a>
+              </li>
+              <li className="list-inline-item">
                 <a
                   className="jsjoe-bg-transparent jsjoe-icon jsjoe-icon-secondary--air rounded"
                   href="social.html"
