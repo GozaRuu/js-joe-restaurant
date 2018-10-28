@@ -5,8 +5,6 @@ import {
   CardBody,
   CardTitle,
   CardText,
-  Breadcrumb,
-  BreadcrumbItem,
   Modal,
   ModalHeader,
   ModalBody,
@@ -181,15 +179,6 @@ class Dishdetail extends Component {
     return (
       <div className="container">
         <div className="row">
-          <Breadcrumb>
-            <BreadcrumbItem>
-              <Link to="/home">Home</Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <Link to="/menu">Menu</Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem active>{this.props.dish.name}</BreadcrumbItem>
-          </Breadcrumb>
           <div className="col-12">
             <h3>{this.props.dish.name}</h3>
             <hr />

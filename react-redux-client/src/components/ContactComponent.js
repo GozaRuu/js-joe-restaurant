@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  Button,
-  Label,
-  Col,
-  Row
-} from "reactstrap";
+import { Button, Label, Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Control, Form, Errors } from "react-redux-form";
 import { initialFeedbackForm } from "../redux/forms/initialFeedbackForm";
@@ -35,12 +28,6 @@ class Contact extends Component {
     return (
       <div className="container">
         <div className="row">
-          <Breadcrumb>
-            <BreadcrumbItem>
-              <Link to="/home">Home</Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem active>Contact Us</BreadcrumbItem>
-          </Breadcrumb>
           <div className="col-12">
             <h3>Contact Us</h3>
             <hr />

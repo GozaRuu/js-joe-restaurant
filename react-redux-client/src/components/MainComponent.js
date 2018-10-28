@@ -102,7 +102,7 @@ class Main extends Component {
           loginUser={this.props.loginUser}
           logoutUser={this.props.logoutUser}
         />
-        {/* <Switch>
+        <Switch>
           <Route path="/home" component={HomeComponentCreator} />
           <Route
             exact
@@ -125,7 +125,7 @@ class Main extends Component {
             )}
           />
           <Redirect from="/" to="/home" />
-        </Switch> */}
+        </Switch>
         <Footer />
       </React.Fragment>
     );
