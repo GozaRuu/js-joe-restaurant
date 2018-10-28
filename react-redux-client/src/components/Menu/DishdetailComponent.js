@@ -14,8 +14,8 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { LocalForm, Control, Errors } from "react-redux-form";
-import { Loading } from "./LoadingComponent";
-import { baseUrl } from "../shared/baseUrl";
+import { Loading } from "../Common/LoadingComponent";
+import { baseUrl } from "../../shared/baseUrl";
 
 const RenderDish = ({ dish }) => {
   return (

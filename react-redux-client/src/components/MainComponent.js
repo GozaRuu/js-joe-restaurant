@@ -3,12 +3,12 @@ import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions } from "react-redux-form";
 import Header from "./Header/HeaderComponent";
-import Footer from "./FooterComponent";
+import Footer from "./Footer/FooterComponent";
 import Home from "./Home/HomeComponent";
-import Menu from "./MenuComponent";
-import Contact from "./ContactComponent";
-import About from "./AboutComponent";
-import Dishdetail from "./DishdetailComponent";
+import Menu from "./Menu/MenuComponent";
+import Dishdetail from "./Menu/DishdetailComponent";
+import Contact from "./Contact/ContactComponent";
+import About from "./About/AboutComponent";
 import {
   addComment,
   fetchDishes,

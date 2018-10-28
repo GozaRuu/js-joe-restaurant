@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, Label, Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Control, Form, Errors } from "react-redux-form";
-import { initialFeedbackForm } from "../redux/forms/initialFeedbackForm";
+import { initialFeedbackForm } from "../../redux/forms/initialFeedbackForm";
 
 const required = val => val && val.length;
 const maxLength = len => val => !val || val.length <= len;
