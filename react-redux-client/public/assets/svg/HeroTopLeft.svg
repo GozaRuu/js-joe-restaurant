@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 900 919" style="enable-background:new 0 0 900 919;" xml:space="preserve">
  <linearGradient id="heroPathID2" gradientUnits="userSpaceOnUse" x1="0" y1="196.5" x2="900" y2="196.5">
-	 <stop class="jsjoe-stop-color-danger" offset="0"/>
-	 <stop class="jsjoe-stop-color-danger-darker" offset="1"/>
+	 <stop class="jsjoe-stop-color-danger-darker" offset="0"/>
+	 <stop class="jsjoe-stop-color-danger" offset="1"/>
  </linearGradient>
  <path fill="url(#heroPathID2)" opacity="1" d="M197,393c0,0,254-343,703-393H0L197,393z"/>
   <linearGradient id="heroPathID1" gradientUnits="userSpaceOnUse" x1="0" y1="501" x2="599" y2="501">

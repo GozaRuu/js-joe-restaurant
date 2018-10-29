@@ -57,8 +57,13 @@ class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="position-relative jsjoe-bg-light-blue-50 overflow-hidden">
-          <div className="jsjoe-space-5-bottom">
+        <div
+          className="position-relative jsjoe-bg-light-blue-50 overflow-hidden"
+          // style={{
+          //   backgroundImage: "url(./assets/images/landing/menu.jpg)"
+          // }}
+        >
+          <div className="jsjoe-space-3-bottom">
             <Navbar light expand="md" className="z-index-2">
               <NavbarBrand className="mr-auto" href="/">
                 <img
