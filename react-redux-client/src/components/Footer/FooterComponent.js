@@ -43,7 +43,6 @@ const Footer = props => {
             <div className="media">
               <div className="d-flex mr-3">
                 <span className="jsjoe-icon jsjoe-icon--lg jsjoe-icon-secondary--air rounded-circle">
-                  <span className="fa fa-envelope jsjoe-icon__inner" />
                   <FontAwesomeIcon
                     icon={faEnvelope}
                     className="jsjoe-icon__inner"
