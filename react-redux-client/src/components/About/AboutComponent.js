@@ -63,7 +63,7 @@ function About(props) {
           <span class="jsjoe-label jsjoe-label--sm jsjoe-label--warning mb-2">
             Where it all started
           </span>
-          <h2 class="text-secondary">
+          <h2 class="text-secondary font-weight-normal">
             Our <span class="font-weight-bold text-dark">history</span>, story
             of passion
           </h2>
@@ -102,7 +102,7 @@ function About(props) {
           <span class="jsjoe-label jsjoe-label--sm jsjoe-label--warning mb-2">
             Excellence
           </span>
-          <h2 class="text-secondary">
+          <h2 class="text-secondary font-weight-normal">
             Meet the <span class="font-weight-bold text-dark">Chefs</span>
           </h2>
           <p>Our love of food got us very far</p>
@@ -120,7 +120,7 @@ function About(props) {
           <span class="jsjoe-label jsjoe-label--sm jsjoe-label--warning mb-2">
             This is Us
           </span>
-          <h2 class="text-secondary">
+          <h2 class="text-secondary font-weight-normal">
             Js Joe in <span class="font-weight-bold text-dark">frames</span>
           </h2>
           <p>We work very hard and we love it.</p>
