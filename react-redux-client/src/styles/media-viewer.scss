@@ -1,0 +1,50 @@
+/*------------------------------------
+  Media Viewer
+------------------------------------*/
+.jsjoe-media-viewer {
+  position: relative;
+  display: block;
+}
+
+.jsjoe-media-viewer:hover .jsjoe-media-viewer__icon {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.jsjoe-media-viewer__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.jsjoe-media-viewer__icon {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 0.75rem;
+  color: #fff;
+  background-color: #377dff;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+  transition: 0.3s ease-in-out;
+}
+
+.jsjoe-media-viewer__icon:hover,
+.jsjoe-media-viewer__icon:focus {
+  color: #fff;
+}
+
+.jsjoe-media-viewer__icon-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

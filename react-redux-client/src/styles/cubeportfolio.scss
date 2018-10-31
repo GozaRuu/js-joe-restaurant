@@ -1,0 +1,54 @@
+/*------------------------------------
+  Cubeportfolio
+------------------------------------*/
+.jsjoe-cubeportfolio .jsjoe-cubeportfolio__item {
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.jsjoe-cubeportfolio .jsjoe-cubeportfolio__item:first-child {
+  padding-left: 0;
+}
+
+.jsjoe-cubeportfolio .jsjoe-cubeportfolio__item:last-child {
+  padding-right: 0;
+}
+
+.jsjoe-cubeportfolio .jsjoe-cubeportfolio__item:hover {
+  color: #1e2022;
+}
+
+.jsjoe-cubeportfolio .jsjoe-cubeportfolio__item.cbp-filter-item-active {
+  color: #377dff;
+  font-weight: 600;
+  background-color: transparent;
+  border: transparent;
+}
+
+.jsjoe-cubeportfolio .cbp-l-loadMore-stop {
+  pointer-events: none;
+  color: #77838f;
+}
+
+.jsjoe-cubeportfolio .cbp-caption-zoom .cbp-caption-activeWrap {
+  background-color: rgba(55, 125, 255, 0.9);
+}
+
+/*------------------------------------
+  Hover Animation Effects
+------------------------------------*/
+.jsjoe-cubeportfolio--reveal-v1 .cbp-l-caption-body {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  transition: 0.4s ease-in-out;
+}
+
+.jsjoe-cubeportfolio--reveal-v1 .cbp-caption:hover .cbp-l-caption-body {
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+}
