@@ -2,23 +2,23 @@
   Form
 ------------------------------------*/
 .jsjoe-form {
-  border-radius: 0.01rem;
+  border-radius: 0.225rem;
 }
 
-// .jsjoe-form input:focus {
-//   box-shadow: 0 0 25px rgba($warning, 0.52);
-//   border-color: $warning;
-// }
+.jsjoe-form input:focus {
+  box-shadow: 0 0 25px rgba($dark, 0.18);
+  border-color: $dark;
+}
 
 .jsjoe-form textarea:focus {
-  box-shadow: 0 0 25px rgba($warning, 0.52);
-  border-color: $warning;
+  box-shadow: 0 0 25px rgba($dark, 0.18);
+  border-color: $dark;
 }
 
-// .jsjoe-form select:focus {
-//   box-shadow: 0 0 25px rgba($warning, 0.52);
-//   border-color: $warning;
-// }
+.jsjoe-form select:focus {
+  box-shadow: 0 0 25px rgba($dark, 0.18);
+  border-color: $dark;
+}
 
 .jsjoe-form__input {
   z-index: 2;

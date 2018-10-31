@@ -48,6 +48,7 @@ $dark: $gray-800;
 @import "./positions.scss";
 @import "./fonts.scss";
 @import "./highlight-color.scss";
+@import "./background-colors.scss";
 @import "./divider.scss";
 @import "./sidebar.scss";
 @import "./forms.scss";
@@ -105,45 +106,6 @@ $dark: $gray-800;
 }
 
 /*------------------------------------
-  Background Colors
-------------------------------------*/
-.jsjoe-bg-transparent {
-  background-color: transparent;
-}
-
-.jsjoe-bg-light-blue-50 {
-  background-color: #f8fafd;
-}
-
-.jsjoe-bg-light-blue-100 {
-  background-color: #f6f9fc;
-}
-
-.jsjoe-bg-light-blue-125 {
-  background-color: #e7eaf3;
-}
-
-.jsjoe-bg-light-yellow-50 {
-  background-color: #fcfcf7;
-}
-
-.jsjoe-bg-light-yellow-100 {
-  background-color: #fcfcf6;
-}
-
-.jsjoe-bg-light-yellow-125 {
-  background-color: #f1f4e6;
-}
-
-.jsjoe-bg-secondary {
-  background-color: $secondary;
-}
-
-.jsjoe-bg-warning {
-  background-color: $warning;
-}
-
-/*------------------------------------
   Link Colors
 ------------------------------------*/
 
@@ -163,14 +125,6 @@ button:hover a {
 }
 
 /*------------------------------------
-  Custom Input
-------------------------------------*/
-.jsjoe-form input:focus {
-  box-shadow: 0 0 25px rgba(255, 241, 55, 0.22);
-  border-color: $warning;
-}
-
-/*------------------------------------
   Custom Buttons
 ------------------------------------*/
 .btn-warning {
@@ -182,4 +136,11 @@ button:hover a {
   border-color: #de4437;
   box-shadow: 0 4px 17px rgba(222, 68, 55, 0.35);
   color: #fff;
+}
+
+/*------------------------------------
+  Inputs sharp borders
+------------------------------------*/
+.form-control {
+  border-radius: 0;
 }
