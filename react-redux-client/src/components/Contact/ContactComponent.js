@@ -7,6 +7,7 @@ import {
   faMapMarkerAlt,
   faFax
 } from "@fortawesome/free-solid-svg-icons";
+import ReactSVG from "react-svg";
 
 const Contact = () => {
   return (
@@ -63,7 +64,7 @@ const Contact = () => {
 
       <hr className="my-0" />
 
-      <div className="container jsjoe-space-3">
+      <div className="container jsjoe-space-2">
         <div className="w-md-80 w-lg-50 text-center mx-auto mb-9">
           <span className="jsjoe-label jsjoe-label--sm jsjoe-label--warning mb-2">
             Leave a Message
@@ -79,6 +80,9 @@ const Contact = () => {
         </div>
 
         <div className="w-lg-80 mx-auto">
+          <figure class="w-40 mx-auto my-5">
+            <ReactSVG src="./assets/svg/AboutHistory.svg" />
+          </figure>
           <ContactForm />
         </div>
       </div>

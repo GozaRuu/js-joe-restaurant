@@ -1,9 +1,6 @@
 import React from "react";
-import { Card, CardBody, CardHeader, Media } from "reactstrap";
 import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
-import { Loading } from "../Common/LoadingComponent";
-import { baseUrl } from "../../shared/baseUrl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
@@ -11,51 +8,9 @@ import {
   faAddressCard
 } from "@fortawesome/free-solid-svg-icons";
 import Frames from "./FramesComponent";
+import RenderLeaders from "./RenderLeadersComponent";
 
 function About(props) {
-  const RenderLeaders = props => {
-    if (props.isLoading) {
-      return (
-        <div className="container">
-          <div className="row">
-            <Loading />
-          </div>
-        </div>
-      );
-    } else if (props.errMess) {
-      return (
-        <div className="container">
-          <div className="row">
-            <h4>{props.errMess}</h4>
-          </div>
-        </div>
-      );
-    }
-    return (
-      <Media list>
-        {props.leaders.map(leader => {
-          return (
-            <Media style={{ marginTop: "32px" }}>
-              <Media left style={{ marginRight: "60px" }}>
-                <Media
-                  object
-                  src={baseUrl + leader.image}
-                  alt={leader.name}
-                  className="img-fluid jsjoe-avatar rounded-circle shadow"
-                  style={{ width: "150px" }}
-                />
-              </Media>
-              <Media body>
-                <Media heading>{leader.designation}</Media>
-                <p class="text-justify">{leader.description}</p>
-              </Media>
-            </Media>
-          );
-        })}
-      </Media>
-    );
-  };
-
   return (
     <div className="position-relative">
       <div class="container jsjoe-space-1-top jsjoe-space-2-bottom">
