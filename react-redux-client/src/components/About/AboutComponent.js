@@ -5,7 +5,12 @@ import ReactSVG from "react-svg";
 import { Loading } from "../Common/LoadingComponent";
 import { baseUrl } from "../../shared/baseUrl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faAngleRight,
+  faAddressCard
+} from "@fortawesome/free-solid-svg-icons";
+import Frames from "./FramesComponent";
 
 function About(props) {
   const RenderLeaders = props => {
@@ -32,11 +37,17 @@ function About(props) {
           return (
             <Media style={{ marginTop: "32px" }}>
               <Media left style={{ marginRight: "60px" }}>
-                <Media object src={baseUrl + leader.image} alt={leader.name} />
+                <Media
+                  object
+                  src={baseUrl + leader.image}
+                  alt={leader.name}
+                  className="img-fluid jsjoe-avatar rounded-circle shadow"
+                  style={{ width: "150px" }}
+                />
               </Media>
               <Media body>
                 <Media heading>{leader.designation}</Media>
-                {leader.description}
+                <p class="text-justify">{leader.description}</p>
               </Media>
             </Media>
           );
@@ -85,41 +96,16 @@ function About(props) {
           </div>
         </div>
       </div>
-      <div class="container jsjoe-space-1-top jsjoe-space-2-bottom">
+
+      <div class="container jsjoe-cubeportfolio jsjoe-space-1-top jsjoe-space-2-bottom">
         <div class="w-md-80 w-lg-50 text-center mx-auto mb-9">
           <span class="jsjoe-label jsjoe-label--sm jsjoe-label--warning mb-2">
-            Quickly
+            Excellence
           </span>
           <h2 class="text-secondary">
-            Js Joe at <span class="font-weight-bold text-dark">a glance</span>
+            Meet the <span class="font-weight-bold text-dark">Chefs</span>
           </h2>
-          <p>We work very hard and we love it.</p>
-        </div>
-        <div className="row row-content">
-          <div className="mx-auto">
-            <Card>
-              <CardHeader className="bg-warning text-white">
-                Facts At a Glance
-              </CardHeader>
-              <CardBody>
-                <dl className="row p-1">
-                  <dt className="col-6">Started</dt>
-                  <dd className="col-6">3 Feb. 2013</dd>
-                  <dt className="col-6">Major Stake Holder</dt>
-                  <dd className="col-6">HK Fine Foods Inc.</dd>
-                  <dt className="col-6">Last Year's Turnover</dt>
-                  <dd className="col-6">$1,250,375</dd>
-                  <dt className="col-6">Employees</dt>
-                  <dd className="col-6">40</dd>
-                </dl>
-              </CardBody>
-            </Card>
-          </div>
-        </div>
-      </div>
-      {/* <div className="row row-content">
-        <div className="col-12">
-          <h2>Corporate Leadership</h2>
+          <p>Our love of food got us very far</p>
         </div>
         <div className="col-12">
           <RenderLeaders
@@ -128,7 +114,7 @@ function About(props) {
             errMess={props.leaders.errMess}
           />
         </div>
-      </div> */}
+      </div>
       <div class="container jsjoe-cubeportfolio jsjoe-space-1-top jsjoe-space-2-bottom">
         <div class="w-md-80 w-lg-50 text-center mx-auto mb-9">
           <span class="jsjoe-label jsjoe-label--sm jsjoe-label--warning mb-2">
@@ -140,178 +126,19 @@ function About(props) {
           <p>We work very hard and we love it.</p>
         </div>
 
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3" style={{ paddingLeft: "0" }}>
-              <div>
-                <a
-                  className="jsjoe-media-viewer"
-                  href="../../assets/images/1920x1920/img1.jpg"
-                  data-title="Front in frames - image #01"
-                >
-                  <img
-                    className="img-fluid rounded"
-                    src="../../assets/images/500x805/img1.jpg"
-                    alt="Image Description"
-                  />
-                  <span className="jsjoe-media-viewer__container">
-                    <span className="jsjoe-media-viewer__icon">
-                      <FontAwesomeIcon
-                        icon={faPlus}
-                        className="jsjoe-media-viewer__icon-inner"
-                      />
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className="col-md-3" style={{ paddingLeft: "0" }}>
-              <div style={{ paddingBottom: "16px" }}>
-                <a
-                  className="jsjoe-media-viewer"
-                  href="../../assets/images/1920x1080/img27.jpg"
-                  data-title="Front in frames - image #02"
-                >
-                  <img
-                    className="img-fluid rounded"
-                    src="../../assets/images/380x227/img1.jpg"
-                    alt="Image Description"
-                  />
-                  <span className="jsjoe-media-viewer__container">
-                    <span className="jsjoe-media-viewer__icon">
-                      <FontAwesomeIcon
-                        icon={faPlus}
-                        className="jsjoe-media-viewer__icon-inner"
-                      />
-                    </span>
-                  </span>
-                </a>
-              </div>
-
-              <div>
-                <a
-                  className="jsjoe-media-viewer"
-                  href="../../assets/images/1920x1080/img21.jpg"
-                  data-title="Front in frames - image #06"
-                >
-                  <img
-                    className="img-fluid rounded"
-                    src="../../assets/images/380x360/img22.jpg"
-                    alt="Image Description"
-                  />
-                  <span className="jsjoe-media-viewer__container">
-                    <span className="jsjoe-media-viewer__icon">
-                      <FontAwesomeIcon
-                        icon={faPlus}
-                        className="jsjoe-media-viewer__icon-inner"
-                      />
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className="col-md-3" style={{ paddingLeft: "0" }}>
-              <div style={{ paddingBottom: "16px" }}>
-                <a
-                  className="jsjoe-media-viewer"
-                  href="../../assets/images/1920x1920/img16.jpg"
-                  data-title="Front in frames - image #03"
-                >
-                  <img
-                    className="img-fluid rounded"
-                    src="../../assets/images/380x360/img23.jpg"
-                    alt="Image Description"
-                  />
-                  <span className="jsjoe-media-viewer__container">
-                    <span className="jsjoe-media-viewer__icon">
-                      <FontAwesomeIcon
-                        icon={faPlus}
-                        className="jsjoe-media-viewer__icon-inner"
-                      />
-                    </span>
-                  </span>
-                </a>
-              </div>
-
-              <div>
-                <a
-                  className="jsjoe-media-viewer"
-                  href="../../assets/images/1920x1980/img26.jpg"
-                  data-title="Front in frames - image #03"
-                >
-                  <img
-                    className="img-fluid rounded"
-                    src="../../assets/images/380x227/img3.jpg"
-                    alt="Image Description"
-                  />
-                  <span className="jsjoe-media-viewer__container">
-                    <span className="jsjoe-media-viewer__icon">
-                      <FontAwesomeIcon
-                        icon={faPlus}
-                        className="jsjoe-media-viewer__icon-inner"
-                      />
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className="col-md-3" style={{ paddingLeft: "0" }}>
-              <div style={{ paddingBottom: "16px" }}>
-                <a
-                  className="jsjoe-media-viewer"
-                  href="../../assets/images/1920x1080/img4.jpg"
-                  data-title="Front in frames - image #04"
-                >
-                  <img
-                    className="img-fluid rounded"
-                    src="../../assets/images/380x227/img2.jpg"
-                    alt="Image Description"
-                  />
-                  <span className="jsjoe-media-viewer__container">
-                    <span className="jsjoe-media-viewer__icon">
-                      <FontAwesomeIcon
-                        icon={faPlus}
-                        className="jsjoe-media-viewer__icon-inner"
-                      />
-                    </span>
-                  </span>
-                </a>
-              </div>
-              <div>
-                <a
-                  className="jsjoe-media-viewer"
-                  href="../../assets/images/1920x1080/img25.jpg"
-                  data-title="Front in frames - image #05"
-                >
-                  <img
-                    className="img-fluid rounded"
-                    src="../../assets/images/380x360/img24.jpg"
-                    alt="Image Description"
-                  />
-                  <span className="jsjoe-media-viewer__container">
-                    <span className="jsjoe-media-viewer__icon">
-                      <FontAwesomeIcon
-                        icon={faPlus}
-                        className="jsjoe-media-viewer__icon-inner"
-                      />
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Frames />
 
         <div className="container jsjoe-space-1 position-relative z-index-2 jsjoe-space-2-top">
           <div className="row">
-            <div className="ml-auto mb-7 mb-lg-0">
+            <div className="ml-auto mb-lg-0">
               <div class="w-md-60 text-center mx-auto">
                 <span class="jsjoe-label jsjoe-label--sm jsjoe-label--warning mb-2">
-                  Our Leader says
+                  Motto
                 </span>
+                <h2 className="text-secondary font-weight-normal">
+                  Our <span className="font-weight-bold text-dark">Leader</span>{" "}
+                  says
+                </h2>
                 <figure className="mb-2" style={{ width: "50px" }}>
                   <ReactSVG src="./assets/svg/quote.svg" />
                 </figure>
@@ -328,6 +155,50 @@ function About(props) {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="container jsjoe-space-1-bottom">
+        <div className="w-md-80 w-lg-50 text-center mx-auto mb-9">
+          <span className="jsjoe-label jsjoe-label--sm jsjoe-label--warning mb-2">
+            Ask Us
+          </span>
+          <h2 className="text-secondary font-weight-normal">
+            Hit <span className="font-weight-bold text-dark">us</span> up
+          </h2>
+          <p>Reservations for parties and ceremonies</p>
+        </div>
+
+        <div className="row align-items-lg-center">
+          <div className="col-lg-5 order-lg-2 mb-7 mb-lg-0">
+            <div className="pl-lg-7">
+              <div className="mb-4">
+                <p>
+                  We give all our skill to make sure your best moments are
+                  executed in perfection
+                </p>
+              </div>
+
+              <Link
+                className="media align-items-center shadow p-4"
+                to="/contactus"
+                style={{ textDecoration: "none" }}
+              >
+                <span className="media-body">
+                  <span className="d-flex justify-content-between align-items-center font-weight-bold">
+                    <span>
+                      <FontAwesomeIcon icon={faAddressCard} /> Get Started with
+                      Front
+                    </span>
+                    <FontAwesomeIcon icon={faAngleRight} />
+                  </span>
+                </span>
+              </Link>
+            </div>
+          </div>
+
+          <figure className="col-lg-7 order-lg-1 mb-7 mb-lg-0">
+            <ReactSVG src="./assets/svg/AboutTalkToUs.svg" />
+          </figure>
         </div>
       </div>
       {/* <figure className="position-absolute-top-right-0 w-75 w-md-60 w-lg-35">
